@@ -1,5 +1,11 @@
 # Debian Squeezed
 
+### Running the script
+
+```sh
+curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/setup.sh | sh
+```
+
 ### Purge list
 
 - [akregator](https://packages.debian.org/bookworm/akregator) - RSS/Atom feed aggregator
