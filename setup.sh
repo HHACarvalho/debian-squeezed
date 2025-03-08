@@ -49,8 +49,10 @@ purge_list=(
 	aspell-te
 	aspell-tl
 	aspell-uk
+	busybox
 	debian-reference-common
 	dragonplayer
+	fakeroot
 	firefox*
 	gimp*
 	goldendict
@@ -76,16 +78,20 @@ purge_list=(
 	juk
 	kaddressbook
 	kdeconnect
+	khelpcenter
 	kmag
 	kmail
 	kmousetool
 	kmouth
 	knotes
+	konqueror
 	kontrast
 	korganizer
 	kwalletmanager
+	kwrite
 	libreoffice*
 	manpages-*
+	mariadb-common
 	mlterm-common
 	mozc-*
 	*-mozc
@@ -93,7 +99,10 @@ purge_list=(
 	*mythes*
 	pim-data-exporter
 	pim-sieve-editor
+	plasma-vault
+	plasma-widgets-addons
 	speech-dispatcher
+	sweeper
 	task-albanian-desktop
 	task-amharic-desktop
 	task-amharic-kde-desktop
