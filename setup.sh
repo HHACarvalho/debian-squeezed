@@ -1,6 +1,8 @@
 #!/bin/bash
 
 purge_list=(
+	*-mozc
+	*mythes*
 	akregator
 	anthy-common
 	aspell-am
@@ -68,13 +70,13 @@ purge_list=(
 	ihungarian
 	iitalian
 	ilithuanian
+	imagemagick*
 	ingerman
 	inorwegian
 	ipolish
 	irussian
 	ispanish
 	iswiss
-	imagemagick*
 	juk
 	kaddressbook
 	kdeconnect
@@ -94,9 +96,7 @@ purge_list=(
 	mariadb-common
 	mlterm-common
 	mozc-*
-	*-mozc
 	myspell*
-	*mythes*
 	pim-data-exporter
 	pim-sieve-editor
 	plasma-vault
@@ -104,200 +104,200 @@ purge_list=(
 	speech-dispatcher
 	sweeper
 	task-albanian-desktop
+	task-amharic
 	task-amharic-desktop
 	task-amharic-kde-desktop
-	task-amharic
+	task-arabic
 	task-arabic-desktop
 	task-arabic-kde-desktop
-	task-arabic
-	task-asturian-desktop
 	task-asturian
+	task-asturian-desktop
+	task-basque
 	task-basque-desktop
 	task-basque-kde-desktop
-	task-basque
+	task-belarusian
 	task-belarusian-desktop
 	task-belarusian-kde-desktop
-	task-belarusian
+	task-bengali
 	task-bengali-desktop
 	task-bengali-kde-desktop
-	task-bengali
+	task-bosnian
 	task-bosnian-desktop
 	task-bosnian-kde-desktop
-	task-bosnian
+	task-brazilian-portuguese
 	task-brazilian-portuguese-desktop
 	task-brazilian-portuguese-kde-desktop
-	task-brazilian-portuguese
 	task-british-desktop
 	task-british-kde-desktop
+	task-bulgarian
 	task-bulgarian-desktop
 	task-bulgarian-kde-desktop
-	task-bulgarian
+	task-catalan
 	task-catalan-desktop
 	task-catalan-kde-desktop
-	task-catalan
+	task-chinese-s
 	task-chinese-s-desktop
 	task-chinese-s-kde-desktop
-	task-chinese-s
+	task-chinese-t
 	task-chinese-t-desktop
 	task-chinese-t-kde-desktop
-	task-chinese-t
+	task-croatian
 	task-croatian-desktop
 	task-croatian-kde-desktop
-	task-croatian
+	task-cyrillic
 	task-cyrillic-desktop
 	task-cyrillic-kde-desktop
-	task-cyrillic
+	task-czech
 	task-czech-desktop
 	task-czech-kde-desktop
-	task-czech
+	task-danish
 	task-danish-desktop
 	task-danish-kde-desktop
-	task-danish
+	task-dutch
 	task-dutch-desktop
 	task-dutch-kde-desktop
-	task-dutch
 	task-dzongkha-desktop
 	task-dzongkha-kde-desktop
+	task-esperanto
 	task-esperanto-desktop
 	task-esperanto-kde-desktop
-	task-esperanto
+	task-estonian
 	task-estonian-desktop
 	task-estonian-kde-desktop
-	task-estonian
+	task-finnish
 	task-finnish-desktop
 	task-finnish-kde-desktop
-	task-finnish
+	task-french
 	task-french-desktop
 	task-french-kde-desktop
-	task-french
+	task-galician
 	task-galician-desktop
 	task-galician-kde-desktop
-	task-galician
 	task-georgian-desktop
+	task-german
 	task-german-desktop
 	task-german-kde-desktop
-	task-german
+	task-greek
 	task-greek-desktop
 	task-greek-kde-desktop
-	task-greek
+	task-gujarati
 	task-gujarati-desktop
 	task-gujarati-kde-desktop
-	task-gujarati
+	task-hebrew
 	task-hebrew-desktop
 	task-hebrew-kde-desktop
-	task-hebrew
+	task-hindi
 	task-hindi-desktop
 	task-hindi-kde-desktop
-	task-hindi
+	task-hungarian
 	task-hungarian-desktop
 	task-hungarian-kde-desktop
-	task-hungarian
+	task-icelandic
 	task-icelandic-desktop
 	task-icelandic-kde-desktop
-	task-icelandic
 	task-indonesian-desktop
 	task-indonesian-kde-desktop
+	task-irish
 	task-irish-desktop
 	task-irish-kde-desktop
-	task-irish
+	task-italian
 	task-italian-desktop
 	task-italian-kde-desktop
-	task-italian
+	task-japanese
 	task-japanese-desktop
 	task-japanese-kde-desktop
-	task-japanese
 	task-kannada-desktop
 	task-kannada-kde-desktop
+	task-kazakh
 	task-kazakh-desktop
 	task-kazakh-kde-desktop
-	task-kazakh
+	task-khmer
 	task-khmer-desktop
 	task-khmer-kde-desktop
-	task-khmer
+	task-korean
 	task-korean-desktop
 	task-korean-kde-desktop
-	task-korean
+	task-kurdish
 	task-kurdish-desktop
 	task-kurdish-kde-desktop
-	task-kurdish
+	task-latvian
 	task-latvian-desktop
 	task-latvian-kde-desktop
-	task-latvian
+	task-lithuanian
 	task-lithuanian-desktop
 	task-lithuanian-kde-desktop
-	task-lithuanian
+	task-macedonian
 	task-macedonian-desktop
 	task-macedonian-kde-desktop
-	task-macedonian
+	task-malayalam
 	task-malayalam-desktop
 	task-malayalam-kde-desktop
-	task-malayalam
-	task-marathi-desktop
 	task-marathi
+	task-marathi-desktop
 	task-nepali-desktop
 	task-nepali-kde-desktop
-	task-northern-sami-desktop
 	task-northern-sami
+	task-northern-sami-desktop
+	task-norwegian
 	task-norwegian-desktop
 	task-norwegian-kde-desktop
-	task-norwegian
+	task-persian
 	task-persian-desktop
 	task-persian-kde-desktop
-	task-persian
+	task-polish
 	task-polish-desktop
 	task-polish-kde-desktop
-	task-polish
+	task-portuguese
 	task-portuguese-desktop
 	task-portuguese-kde-desktop
-	task-portuguese
+	task-punjabi
 	task-punjabi-desktop
 	task-punjabi-kde-desktop
-	task-punjabi
+	task-romanian
 	task-romanian-desktop
 	task-romanian-kde-desktop
-	task-romanian
+	task-russian
 	task-russian-desktop
 	task-russian-kde-desktop
-	task-russian
+	task-serbian
 	task-serbian-desktop
 	task-serbian-kde-desktop
-	task-serbian
 	task-sinhala-desktop
 	task-sinhala-kde-desktop
+	task-slovak
 	task-slovak-desktop
 	task-slovak-kde-desktop
-	task-slovak
+	task-slovenian
 	task-slovenian-desktop
 	task-slovenian-kde-desktop
-	task-slovenian
 	task-south-african-english-desktop
+	task-spanish
 	task-spanish-desktop
 	task-spanish-kde-desktop
-	task-spanish
+	task-swedish
 	task-swedish-desktop
 	task-swedish-kde-desktop
-	task-swedish
 	task-tagalog
-	task-tamil-desktop
 	task-tamil
+	task-tamil-desktop
+	task-telugu
 	task-telugu-desktop
 	task-telugu-kde-desktop
-	task-telugu
+	task-thai
 	task-thai-desktop
 	task-thai-kde-desktop
-	task-thai
+	task-turkish
 	task-turkish-desktop
 	task-turkish-kde-desktop
-	task-turkish
+	task-ukrainian
 	task-ukrainian-desktop
 	task-ukrainian-kde-desktop
-	task-ukrainian
 	task-uyghur-desktop
 	task-uyghur-kde-desktop
 	task-vietnamese-desktop
 	task-vietnamese-kde-desktop
-	task-welsh-desktop
 	task-welsh
+	task-welsh-desktop
 	task-xhosa-desktop
 	task-xhosa-kde-desktop
 	vim-common
