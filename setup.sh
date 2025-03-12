@@ -1,7 +1,18 @@
 #!/bin/bash
 
-source <(curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/purge-list.sh)
-source <(curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/install-list.sh)
+sudo apt install curl -y # Installs a required package
+
+if [ -e purge-list.sh ]; then
+    source purge-list.sh
+else
+    source <(curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/purge-list.sh)
+fi
+
+if [ -e install-list.sh ]; then
+    source install-list.sh
+else
+    source <(curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/install-list.sh)
+fi
 
 sudo apt purge "${purge_list[@]}" -y
 
