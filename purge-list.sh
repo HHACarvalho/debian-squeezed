@@ -1,148 +1,37 @@
 #!/bin/bash
 
 purge_list=(
-    *aspell*
-    *hunspell*
-    *mythes*
-    akregator
-    busybox
-    debian-reference-common
-    dragonplayer
-    fakeroot
-    firefox*
-    gimp*
-    goldendict
-    hspell
-    hunspell*
-    ibrazilian
-    ibritish
-    ibulgarian
-    icatalan
-    idanish
-    idutch
-    ifrench-gut
-    ihungarian
-    iitalian
-    ilithuanian
+    akregator #
+    catdoc
+    dragonplayer #
+    firefox-esr
+    gimp
+    graphviz
+    gsfonts
+    hunspell-en-us
     imagemagick*
-    ingerman
-    inorwegian
-    ipolish
-    irussian
-    ispanish
-    iswiss
-    juk
-    kaddressbook
+    installation-report
+    juk          #
+    kaddressbook #
+    kdeaccessibility
     kdeconnect
-    khelpcenter
+    khelpcenter #
     kmag
-    kmail
+    kmail #
     kmousetool
     kmouth
-    knotes
-    konqueror
+    knotes    #
+    konqueror #
     kontrast
-    korganizer
-    kwalletmanager
-    kwrite
+    korganizer     #
+    kwalletmanager #
+    kwrite         #
     libreoffice*
-    manpages*
+    lynx
     mariadb-common
-    mlterm-common
-    mozc-*
-    myspell*
-    pim-data-exporter
-    pim-sieve-editor
-    plasma-vault
-    plasma-widgets-addons
-    speech-dispatcher
-    sweeper
-    task-albanian*
-    task-amharic*
-    task-arabic*
-    task-asturian*
-    task-basque*
-    task-belarusian*
-    task-bengali*
-    task-bosnian*
-    task-brazilian*
-    task-british*
-    task-bulgarian*
-    task-catalan*
-    task-chinese-s*
-    task-chinese-t*
-    task-croatian*
-    task-cyrillic*
-    task-czech*
-    task-danish*
-    task-dutch*
-    task-dzongkha*
-    task-esperanto*
-    task-estonian*
-    task-finnish*
-    task-french*
-    task-galician*
-    task-georgian*
-    task-german*
-    task-greek*
-    task-gujarati*
-    task-hebrew*
-    task-hindi*
-    task-hungarian*
-    task-icelandic*
-    task-indonesian*
-    task-irish*
-    task-italian*
-    task-japanese*
-    task-kannada*
-    task-kazakh*
-    task-khmer*
-    task-korean*
-    task-kurdish*
-    task-latvian*
-    task-lithuanian*
-    task-macedonian*
-    task-malayalam*
-    task-marathi*
-    task-nepali*
-    task-northern-sami*
-    task-norwegian*
-    task-persian*
-    task-polish*
-    task-portuguese*
-    task-punjabi*
-    task-romanian*
-    task-russian*
-    task-serbian*
-    task-sinhala*
-    task-slovak*
-    task-slovenian*
-    task-south-african*
-    task-spanish*
-    task-swedish*
-    task-tagalog*
-    task-tamil*
-    task-telugu*
-    task-thai*
-    task-turkish*
-    task-ukrainian*
-    task-uyghur*
-    task-vietnamese*
-    task-welsh*
-    task-xhosa*
-    vim-common
-    wbrazilian
-    wbulgarian
-    wcatalan
-    wdanish
-    wdutch
-    wfrench
-    witalian
-    wngerman
-    wnorwegian
-    wpolish
-    wspanish
-    wswedish
-    xiterm+thai
+    orca
+    pim-*
+    plasma-discover #
+    vim-*
     xterm
 )
