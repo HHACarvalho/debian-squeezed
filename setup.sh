@@ -14,11 +14,11 @@ else
     source <(curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/install-list.sh)
 fi
 
-sudo apt purge "${purge_list[@]}" -y
+sudo apt purge "${purge_list[@]}" -y # Uninstalls every package on the purge list
+sudo apt autopurge -y                # Uninstalls all unused dependencies
 
-sudo apt autopurge -y # Uninstalls unused APT dependencies
-sudo apt update -y    # Fetches the latest APT package lists
-sudo apt upgrade -y   # Installs the latest version of installed APT packages
+sudo apt update -y  # Fetches the latest package lists
+sudo apt upgrade -y # Installs the latest version of installed packages
 
-sudo apt install "${install_list[@]}" -y
-sudo apt clean -y # Deletes all cached APT packages
+sudo apt install "${install_list[@]}" -y # Install every package on the install list
+sudo apt clean -y                        # Deletes all cached APT packages
