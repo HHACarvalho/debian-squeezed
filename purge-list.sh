@@ -1,9 +1,9 @@
 #!/bin/bash
 
 purge_list=(
-    akregator #
+    akregator
     catdoc
-    dragonplayer #
+    dragonplayer
     firefox-esr
     gimp
     graphviz
@@ -11,27 +11,26 @@ purge_list=(
     hunspell-en-us
     imagemagick*
     installation-report
-    juk          #
-    kaddressbook #
+    juk
+    kaddressbook
     kdeaccessibility
     kdeconnect
-    khelpcenter #
+    khelpcenter
     kmag
-    kmail #
+    kmail
     kmousetool
     kmouth
-    knotes    #
-    konqueror #
+    knotes
+    konqueror
     kontrast
-    korganizer     #
-    kwalletmanager #
-    kwrite         #
+    korganizer
+    kwalletmanager
+    kwrite
     libreoffice*
     lynx
     mariadb-common
     orca
     pim-*
-    plasma-discover #
     vim-*
     xterm
 )
