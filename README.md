@@ -5,13 +5,15 @@ A lightweight script that streamlines a fresh Debian KDE installation by removin
 ### Running the script
 
 ```sh
-curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/setup.sh | sh
+curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/setup.sh | bash
 ```
 
-### Downloading the script
+### Downloading the script and the lists
 
 ```sh
 curl -fsSO https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/setup.sh
+curl -fsSO https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/install-list.sh
+curl -fsSO https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/purge-list.sh
 ```
 
 ---
