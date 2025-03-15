@@ -3,6 +3,13 @@
 sudo apt update          # Fetches the latest package lists
 sudo apt install curl -y # Installs curl (prerequisite)
 
+# Loads the config list
+if [ -e config-list.sh ]; then
+    source config-list.sh
+else
+    source <(curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/config-list.sh)
+fi
+
 # Loads the install list
 if [ -e install-list.sh ]; then
     source install-list.sh
@@ -37,3 +44,8 @@ sudo apt purge "${purge_list[@]}" -y # Uninstalls every package on the purge lis
 sudo apt autopurge -y                # Uninstalls unused dependencies
 sudo apt upgrade -y                  # Installs the latest version of installed packages
 sudo apt clean -y                    # Clears the package cache
+
+# System configuration
+for config in "${!config_list[@]}"; do
+    curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/config/$config.sh
+done
