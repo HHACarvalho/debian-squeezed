@@ -29,8 +29,13 @@ purge_list=(
     libreoffice*
     lynx
     mariadb-common
+    mythes-en-us
     orca
     pim-*
+    plasma-browser-integration
+    plasma-widget-addons
+    qsynth
     vim-*
     xterm
+    zstd
 )
