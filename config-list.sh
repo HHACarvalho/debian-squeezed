@@ -2,8 +2,10 @@
 
 config_list=(
     auto-login
-    boot-config
-    caps-lock-fix
-    dolphin-config
+    boot
+    caps-lock
+    clock
+    dolphin
     single-click
+    taskbar
 )
