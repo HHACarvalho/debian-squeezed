@@ -33,7 +33,7 @@ purge_list=(
     orca
     pim-*
     plasma-browser-integration
-    plasma-widget-addons
+    plasma-widgets-addons
     qsynth
     vim-*
     xterm
