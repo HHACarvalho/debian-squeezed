@@ -8,6 +8,7 @@ config_list=(
     dolphin
     krunner
     single-click
+    system-tray
     taskbar
     wallet
 )
