@@ -56,4 +56,5 @@ for config in ${config_list[@]}; do
     fi
 done
 
+# Restart the system
 sudo reboot
