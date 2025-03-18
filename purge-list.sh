@@ -24,8 +24,11 @@ purge_list=(
     konqueror
     kontrast
     korganizer
+    kup-backup
+    kuserfeedback-doc
     kwalletmanager
     kwrite
+    less
     libreoffice*
     lynx
     mariadb-common
@@ -33,8 +36,11 @@ purge_list=(
     orca
     pim-*
     plasma-browser-integration
+    plasma-vault
     plasma-widgets-addons
     qsynth
+    samba-*
+    smbclient
     vim-*
     xterm
     zstd
