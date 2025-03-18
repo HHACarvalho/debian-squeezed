@@ -56,5 +56,7 @@ for config in ${config_list[@]}; do
     fi
 done
 
+bash gpu-nvidia.sh
+
 # Restart the system
 sudo reboot
