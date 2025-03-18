@@ -5,26 +5,21 @@ A lightweight script that streamlines a fresh Debian KDE installation by removin
 ### Running the script
 
 ```sh
+sudo apt update
+sudo apt install curl -y
 curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/setup.sh | bash
 ```
 
-### Downloading the script, the lists and the configuration files
+### Downloading the script (stable)
 
 ```sh
-# The Setup script
-curl -fsSO https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/setup.sh
+curl -fsSLO https://github.com/HHACarvalho/debian-squeezed/archive/refs/heads/main.zip
+```
 
-# Config / Install / Purge lists
-curl -fsSO https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/config-list.sh
-curl -fsSO https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/install-list.sh
-curl -fsSO https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/purge-list.sh
+### Downloading the script (testing)
 
-# Configuration files
-curl -fsSO https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/config/auto-login.sh
-curl -fsSO https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/config/boot-config.sh
-curl -fsSO https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/config/caps-lock-fix.sh
-curl -fsSO https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/config/dolphin-config.sh
-curl -fsSO https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/config/single-click.sh
+```sh
+curl -fsSLO https://github.com/HHACarvalho/debian-squeezed/archive/refs/heads/beta.zip
 ```
 
 ---
