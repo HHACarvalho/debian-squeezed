@@ -13,13 +13,9 @@ deb-src https://security.debian.org/debian-security bookworm-security main contr
 deb https://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
 deb-src https://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list >/dev/null
 
-sudo mkdir -p /etc/dracut.conf.d/
-echo 'install_items+=" /etc/modprobe.d/nvidia-blacklists-nouveau.conf /etc/modprobe.d/nvidia.conf /etc/modprobe.d/nvidia-options.conf "' | sudo tee /etc/dracut.conf.d/nvidia-install.conf >/dev/null
-
 sudo apt update
 sudo apt install nvidia-driver firmware-misc-nonfree -y
 
-sudo mkdir -p /etc/modprobe.d/
 echo "options nvidia-drm modeset=1" | sudo tee -a /etc/modprobe.d/nvidia-options.conf >/dev/null
 echo "options nvidia NVreg_PreserveVideoMemoryAllocations=1" | sudo tee -a /etc/modprobe.d/nvidia-options.conf >/dev/null
 
