@@ -3,8 +3,5 @@
 # Changes:
 # - Pins Brave, Konsole and Dolphin to the Taskbar
 
-echo "[Bell]
-SystemBell=false
-
-[ScreenReader]
-Enabled=false" >~/.config/kaccessrc
+kwriteconfig5 --file ~/.config/kaccessrc --group Bell --key SystemBell "false"
+kwriteconfig5 --file ~/.config/kaccessrc --group ScreenReader --key Enabled "false"

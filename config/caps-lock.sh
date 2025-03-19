@@ -19,9 +19,5 @@ echo '! option = symbols
 custom:caps_lock_fix = +custom(caps_lock_fix)
 ! include %S/evdev' >~/.config/xkb/rules/evdev
 
-echo '[$Version]
-update_info=kxkb.upd:remove-empty-lists,kxkb.upd:add-back-resetoptions,kxkb_variants.upd:split-variants
-
-[Layout]
-Options=custom:caps_lock_fix
-ResetOldOptions=true' >~/.config/kxkbrc
+kwriteconfig5 --file ~/.config/kxkbrc --group Layout --key Options custom:caps_lock_fix
+kwriteconfig5 --file ~/.config/kxkbrc --group Layout --key ResetOldOptions true

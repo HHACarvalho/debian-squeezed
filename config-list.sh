@@ -7,8 +7,8 @@ config_list=(
     caps-lock
     clock
     dolphin
+    globals
     krunner
-    single-click
     system-tray
     taskbar
     wallet

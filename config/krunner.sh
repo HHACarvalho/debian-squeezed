@@ -3,7 +3,5 @@
 # Changes:
 # - Disables Software Center and Web Search Keywords on KRunner
 
-echo "
-[Plugins]
-appstreamEnabled=false
-webshortcutsEnabled=false" >>~/.config/krunnerrc
+kwriteconfig5 --file ~/.config/krunnerrc --group Plugins --key appstreamEnabled "false"
+kwriteconfig5 --file ~/.config/krunnerrc --group Plugins --key webshortcutsEnabled "false"

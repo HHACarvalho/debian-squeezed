@@ -3,12 +3,12 @@
 # Changes:
 # - Dolphin (File explorer):
 #   * Enables path editing
-#   * No longer saves opened tabs on close
+#   * Disables saving opened tabs on close
 #   * Hides the selection toggle and the status bar
 
-echo "
-[General]
-EditableUrl=true
-RememberOpenedTabs=false
-ShowSelectionToggle=false
-ShowStatusBar=false" >>~/.config/dolphinrc
+kwriteconfig5 --file ~/.config/dolphinrc --group General --key EditableUrl "true"
+
+kwriteconfig5 --file ~/.config/dolphinrc --group General --key RememberOpenedTabs "false"
+
+kwriteconfig5 --file ~/.config/dolphinrc --group General --key ShowSelectionToggle "false"
+kwriteconfig5 --file ~/.config/dolphinrc --group General --key ShowStatusBar "false"
