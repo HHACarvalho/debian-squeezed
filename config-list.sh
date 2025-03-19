@@ -1,7 +1,8 @@
 #!/bin/bash
 
 config_list=(
-    #auto-login
+    accessibility
+    auto-login
     boot
     caps-lock
     clock
