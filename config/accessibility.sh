@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Changes:
-# - Pins Brave, Konsole and Dolphin to the Taskbar
+# - Disables the system bell sound and the screen reader
 
 kwriteconfig5 --file ~/.config/kaccessrc --group Bell --key SystemBell "false"
 kwriteconfig5 --file ~/.config/kaccessrc --group ScreenReader --key Enabled "false"
