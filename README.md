@@ -14,12 +14,14 @@ curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/hea
 
 ```sh
 curl -fsSLO https://github.com/HHACarvalho/debian-squeezed/archive/refs/heads/main.zip
+unzip main.zip
 ```
 
 ### Downloading the script (testing)
 
 ```sh
 curl -fsSLO https://github.com/HHACarvalho/debian-squeezed/archive/refs/heads/beta.zip
+unzip beta.zip
 ```
 
 ---

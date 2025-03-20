@@ -1,14 +1,13 @@
 #!/bin/bash
 
 config_list=(
-    #auto-login
+    accessibility
     boot
     caps-lock
     clock
     dolphin
+    globals
     krunner
-    single-click
     system-tray
     taskbar
-    wallet
 )

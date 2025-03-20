@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# Changes:
-# - Removes the confirmation dialog before Shutdown / Restart / Log out
-# - Prevents saving the user session to allow for a complete restart of the OS
+# Removes the confirmation dialog before logging out
+kwriteconfig5 --file ~/.config/ksmserverrc --group General --key confirmLogout "false"
 
-echo "
-[General]
-confirmLogout=false
-loginMode=emptySession" >>~/.config/ksmserverrc
+# Wipes user session on logout
+kwriteconfig5 --file ~/.config/ksmserverrc --group General --key loginMode "emptySession"
