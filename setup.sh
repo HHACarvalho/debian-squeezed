@@ -2,8 +2,21 @@
 
 readonly RAW_REPO_URL="https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/"
 
-sudo apt update          # Fetches the latest package lists
-sudo apt install curl -y # Installs curl (prerequisite)
+# Adds the "contrib" and "non-free" components to the debian sources
+echo "deb https://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+deb-src https://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+
+deb https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+deb-src https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+
+deb https://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
+deb-src https://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list >/dev/null
+
+# Enables the 32-bit architecture
+sudo dpkg --add-architecture i386 && sudo apt update
+
+# Installs curl
+sudo apt install curl -y
 
 # Loads the config list
 if [ -e config-list.sh ]; then
@@ -26,22 +39,32 @@ else
     source <(curl -fsS ${RAW_REPO_URL}purge-list.sh)
 fi
 
-# Adds new repositories
-for repo in ${!repo_list[@]}; do
-    eval ${repo_list[$repo]}
+# Adds new repositories and fetches their packages
+if [[ ${#repo_list[@]} -gt 0 ]]; then
+    for repo in ${!repo_list[@]}; do
+        eval ${repo_list[$repo]}
+    done
+
+    sudo apt update
+fi
+
+# Performs the custom installations
+for app in ${!install_list_custom[@]}; do
+    eval ${install_list_custom[$app]}
 done
 
-sudo apt update # Fetches the latest package lists (new repositories)
-
 # Performs the curl-assisted installations
-for package in ${!install_list_curl[@]}; do
-    curl -fLo /tmp/$package.deb ${install_list_curl[$package]} && sudo apt install /tmp/$package.deb -y && rm /tmp/$package.deb
+for app in ${!install_list_curl[@]}; do
+    curl -fLo /tmp/$app.deb ${install_list_curl[$app]} && sudo apt install /tmp/$app.deb -y && rm /tmp/$app.deb
 done
 
 # Performs the apt installations
-sudo apt install ${install_list_apt[@]} -y # Installs every package on the install list
+sudo apt install ${install_list_apt[@]} -y
 
-# Cleanup
+# Installs the latest NVIDIA GPU driver
+bash gpu-nvidia.sh
+
+# Clean-up
 sudo apt purge "${purge_list[@]}" -y # Uninstalls every package on the purge list
 sudo apt autopurge -y                # Uninstalls unused dependencies
 sudo apt upgrade -y                  # Installs the latest version of installed packages
@@ -55,8 +78,6 @@ for config in ${config_list[@]}; do
         curl -fsS ${RAW_REPO_URL}config/$config.sh | bash
     fi
 done
-
-bash gpu-nvidia.sh
 
 # Restart the system
 sudo reboot
