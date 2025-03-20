@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Changes:
-# - Fixes the Caps Lock delay
+# Fixes the Caps Lock delay
 
 mkdir -p ~/.config/xkb/symbols/
 echo 'hidden partial modifier_keys

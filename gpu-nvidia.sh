@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# Changes:
-# - Adds the "contrib" and "non-free" components to the debian sources
-# - Installs and configures the driver for NVIDIA GPUs
-
+# Adds the "contrib" and "non-free" components to the debian sources
 echo "deb https://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
 deb-src https://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
 
@@ -13,6 +10,7 @@ deb-src https://security.debian.org/debian-security bookworm-security main contr
 deb https://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
 deb-src https://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list >/dev/null
 
+# Installs the driver
 sudo apt update
 sudo apt install nvidia-driver firmware-misc-nonfree -y
 
