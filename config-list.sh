@@ -2,7 +2,6 @@
 
 config_list=(
     accessibility
-    auto-login
     boot
     caps-lock
     clock
@@ -11,5 +10,4 @@ config_list=(
     krunner
     system-tray
     taskbar
-    wallet
 )
