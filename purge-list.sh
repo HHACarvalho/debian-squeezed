@@ -42,6 +42,4 @@ purge_list=(
     samba-*
     smbclient
     vim-*
-    xterm
-    zstd
 )
