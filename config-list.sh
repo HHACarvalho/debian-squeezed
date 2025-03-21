@@ -10,6 +10,7 @@ config_list=(
     krunner
     system-tray
     taskbar
+    wallet
 )
 
 config_mangohud() {
