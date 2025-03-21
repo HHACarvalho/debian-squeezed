@@ -3,6 +3,7 @@
 install_list_apt=(
     brave-browser
     lutris
+    mangohud
     mkvtoolnix-gui
     qbittorrent
     synaptic
