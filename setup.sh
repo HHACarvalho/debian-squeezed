@@ -79,6 +79,8 @@ for config in ${config_list[@]}; do
     fi
 done
 
+config_mangohud
+
 echo "Press any key to continue..."
 read -n 1 -s
 echo "Rebooting..."
