@@ -81,9 +81,8 @@ done
 
 config_mangohud
 
-echo "Press any key to continue..."
-read -n 1 -s
-echo "Rebooting..."
+read -n 1 -s -p "Press any key to continue..."
+echo -e "\nRebooting..."
 
 # Restart the system
 sudo reboot
