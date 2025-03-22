@@ -39,14 +39,13 @@ else
     source <(curl -fsS ${RAW_REPO_URL}purge-list.sh)
 fi
 
-# Adds new repositories and fetches their packages
-if [[ ${#repo_list[@]} -gt 0 ]]; then
-    for repo in ${!repo_list[@]}; do
-        eval ${repo_list[$repo]}
-    done
+# Adds new repositories
+for repo in ${!repo_list[@]}; do
+    eval ${repo_list[$repo]}
+done
 
-    sudo apt update
-fi
+# Fetches the newly added packages
+sudo apt update
 
 # Performs the custom installations
 for app in ${!install_list_custom[@]}; do
