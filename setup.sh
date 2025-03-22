@@ -71,18 +71,19 @@ sudo apt upgrade -y                  # Installs the latest version of installed 
 sudo apt clean -y                    # Clears the package cache
 
 # System configuration
-for config in ${config_list[@]}; do
-    if [ -e config/$config.sh ]; then
-        bash config/$config.sh
-    else
-        curl -fsS ${RAW_REPO_URL}config/$config.sh | bash
-    fi
-done
-
+config_accessibility
+config_boot
+config_caps_lock
+config_clock
+config_dolphin
+config_globals
+config_krunner
 config_mangohud
-
-read -n 1 -s -p "Press any key to continue..."
-echo -e "\nRebooting..."
+config_system_tray
+config_taskbar
+config_wallet
 
 # Restart the system
+read -n 1 -s -p "Press any key to continue..."
+echo -e "\nRebooting..."
 sudo reboot
