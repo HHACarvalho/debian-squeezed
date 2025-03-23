@@ -20,7 +20,6 @@ purge_list=(
     kmail
     kmousetool
     kmouth
-    knotes
     konqueror
     kontrast
     korganizer
