@@ -3,14 +3,7 @@
 readonly RAW_REPO_URL="https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/"
 
 # Adds the "contrib" and "non-free" components to the debian sources
-echo "deb https://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
-deb-src https://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
-
-deb https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
-deb-src https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
-
-deb https://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
-deb-src https://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list >/dev/null
+config_sources
 
 # Enables the 32-bit architecture
 sudo dpkg --add-architecture i386 && sudo apt update
