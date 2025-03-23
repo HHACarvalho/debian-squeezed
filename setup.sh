@@ -2,7 +2,7 @@
 
 readonly RAW_REPO_URL="https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/"
 
-# Adds the "contrib" and "non-free" components to the debian sources
+# Configures debian sources
 config_sources
 
 # Enables the 32-bit architecture
@@ -53,7 +53,7 @@ done
 # Performs the apt installations
 sudo apt install ${install_list_apt[@]} -y
 
-# Installs the latest NVIDIA GPU driver
+# Installs and configures the NVIDIA GPU driver
 bash gpu-nvidia.sh
 
 # Clean-up
