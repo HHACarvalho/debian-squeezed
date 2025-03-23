@@ -70,17 +70,7 @@ sudo apt upgrade -y                  # Installs the latest version of installed 
 sudo apt clean -y                    # Clears the package cache
 
 # System configuration
-config_accessibility
-config_boot
-config_caps_lock
-config_clock
-config_dolphin
-config_globals
-config_krunner
-config_mangohud
-config_system_tray
-config_taskbar
-config_wallet
+system_config
 
 # Restart the system
 read -n 1 -s -p "Press any key to continue..."

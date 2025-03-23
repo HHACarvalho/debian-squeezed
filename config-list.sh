@@ -14,6 +14,20 @@ config_list=(
     wallet
 )
 
+system_config() {
+    config_accessibility
+    config_boot
+    config_caps_lock
+    config_clock
+    config_dolphin
+    config_globals
+    config_krunner
+    config_mangohud
+    config_system_tray
+    config_taskbar
+    config_wallet
+}
+
 config_accessibility() {
 
     # Disables the system bell and screen reader
