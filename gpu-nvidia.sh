@@ -4,7 +4,7 @@
 sudo apt install linux-headers-amd64 -y
 
 # Installs the driver
-sudo apt install nvidia-driver firmware-misc-nonfree -y
+sudo apt install nvidia-kernel-dkms nvidia-driver firmware-misc-nonfree -y
 
 # Installs the 32-bit graphics libraries
 sudo apt install nvidia-driver-libs:i386 -y
