@@ -34,6 +34,9 @@ config_accessibility() {
     kwriteconfig6 --file ~/.config/kaccessrc --group Bell --key SystemBell "false"
     kwriteconfig6 --file ~/.config/kaccessrc --group Keyboard --key AccessXBeep "false"
     kwriteconfig6 --file ~/.config/kwinrc --group Plugins --key shakecursorEnabled "false"
+
+    # Sets the resolution scale to 100% on Wayland
+    kwriteconfig6 --file ~/.config/kwinrc --group Xwayland --key Scale "1"
 }
 
 config_boot() {
