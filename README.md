@@ -1,6 +1,6 @@
 # Debian Squeezed
 
-A lightweight script that streamlines a fresh Debian KDE installation by removing unnecessary packages and seamlessly installing essential ones.
+A lightweight script that streamlines a fresh Debian KDE installation by: installing essential packages, removing unnecessary ones and configuring your OS.
 
 ### Running the script
 
@@ -10,18 +10,13 @@ sudo apt install curl -y
 curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/setup.sh | bash
 ```
 
-### Downloading the script (stable)
+### Downloading the script
 
 ```sh
 curl -fsSLO https://github.com/HHACarvalho/debian-squeezed/archive/refs/heads/main.zip
 unzip main.zip
-```
-
-### Downloading the script (testing)
-
-```sh
-curl -fsSLO https://github.com/HHACarvalho/debian-squeezed/archive/refs/heads/beta.zip
-unzip beta.zip
+cd debian-squeezed-main/
+chmod +x setup.sh
 ```
 
 ---
