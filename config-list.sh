@@ -21,9 +21,13 @@ sources_config() {
 
     # Deletes the old sources file
     sudo rm /etc/apt/sources.list
+
+    # Adds the 32-bit architecture
+    sudo dpkg --add-architecture i386
 }
 
 system_config() {
+
     config_accessibility
     config_boot
     config_caps_lock

@@ -2,15 +2,6 @@
 
 readonly RAW_REPO_URL="https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/"
 
-# Configures debian sources
-config_sources
-
-# Enables the 32-bit architecture
-sudo dpkg --add-architecture i386 && sudo apt update
-
-# Installs curl
-sudo apt install curl -y
-
 # Loads the config list
 if [ -e config-list.sh ]; then
     source config-list.sh
@@ -31,6 +22,9 @@ if [ -e purge-list.sh ]; then
 else
     source <(curl -fsS ${RAW_REPO_URL}purge-list.sh)
 fi
+
+# Sources configuration
+sources_config
 
 # Adds new repositories
 for repo in ${!repo_list[@]}; do
