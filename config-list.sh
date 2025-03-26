@@ -49,7 +49,7 @@ config_accessibility() {
     kwriteconfig6 --file ~/.config/kwinrc --group Plugins --key shakecursorEnabled "false"
 
     # Sets the resolution scale to 100% on Wayland
-    kwriteconfig6 --file ~/.config/kwinrc --group Xwayland --key Scale "1"
+    kscreen-doctor output.1.scale.1
 }
 
 config_boot() {
