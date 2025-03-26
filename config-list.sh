@@ -29,6 +29,7 @@ sources_config() {
 system_config() {
 
     config_accessibility
+    config_auto_login
     config_boot
     config_caps_lock
     config_clock
@@ -50,6 +51,13 @@ config_accessibility() {
 
     # Sets the resolution scale to 100% on Wayland
     kscreen-doctor output.1.scale.1
+}
+
+config_auto_login() {
+
+    # Enables automatic password-less login
+    sudo mkdir -p /etc/sddm.conf.d/
+    echo -e "[Autologin]\nRelogin=false\nSession=plasma\nUser=$(whoami)\n\n[General]\nHaltCommand=\nRebootCommand=\n\n[Theme]\nCurrent=\n\n[Users]\nMaximumUid=60000\nMinimumUid=1000" | sudo tee /etc/sddm.conf.d/kde_settings.conf >/dev/null
 }
 
 config_boot() {
