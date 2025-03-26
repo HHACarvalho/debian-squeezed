@@ -48,7 +48,7 @@ done
 sudo apt install ${install_list_apt[@]} -y
 
 # Installs and configures the NVIDIA GPU driver
-bash gpu-nvidia.sh
+bash gpu-nvidia.sh latest
 
 # Clean-up
 sudo apt purge "${purge_list[@]}" -y # Uninstalls every package on the purge list
