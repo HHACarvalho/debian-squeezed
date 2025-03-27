@@ -3,6 +3,7 @@
 config_list=(
     accessibility
     app-launcher
+    auto-login
     boot
     caps-lock
     clock
@@ -10,6 +11,7 @@ config_list=(
     globals
     krunner
     mangohud
+    sticky-keys
     system-tray
     taskbar
     wallet
@@ -39,6 +41,7 @@ system_config() {
     config_globals
     config_krunner
     config_mangohud
+    config_sticky_keys
     config_system_tray
     config_taskbar
     config_wallet
@@ -137,6 +140,12 @@ config_mangohud() {
 
     # Enables MangoHud by default in games
     echo -e "\nexport MANGOHUD=1" >>~/.profile
+}
+
+config_sticky_keys() {
+
+    # Enables the Hybrid asynchronous mode on IBus
+    echo -e "\nexport IBUS_ENABLE_SYNC_MODE=2" >>~/.profile
 }
 
 config_system_tray() {
