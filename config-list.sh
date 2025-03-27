@@ -7,6 +7,7 @@ config_list=(
     boot
     caps-lock
     clock
+    discord
     dolphin
     globals
     krunner
@@ -37,6 +38,7 @@ system_config() {
     config_boot
     config_caps_lock
     config_clock
+    config_discord
     config_dolphin
     config_globals
     config_krunner
@@ -104,6 +106,13 @@ config_clock() {
 
     # Changes the clock format to 24-Hour
     kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 2 --group Applets --group 21 --group Configuration --group Appearance --key use24hFormat "2"
+}
+
+config_discord() {
+
+    # Launches Discord on startup
+    mkdir -p ~/.config/autostart/
+    echo -e "[Desktop Entry]\nExec=/usr/share/discord/Discord\nIcon=discord\nName=Discord\nType=Application" >~/.config/autostart/discord.desktop
 }
 
 config_dolphin() {
