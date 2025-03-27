@@ -2,6 +2,7 @@
 
 config_list=(
     accessibility
+    app-launcher
     boot
     caps-lock
     clock
@@ -29,6 +30,7 @@ sources_config() {
 system_config() {
 
     config_accessibility
+    config_app_launcher
     config_auto_login
     config_boot
     config_caps_lock
@@ -51,6 +53,15 @@ config_accessibility() {
 
     # Sets the resolution scale to 100% on Wayland
     kscreen-doctor output.1.scale.1
+}
+
+config_app_launcher() {
+
+    # Installs prerequisite
+    sudo apt install sqlite3 -y
+
+    # Adds Discord, Kate, MKVToolNix, qBittorrent, Steam and System Settings to the favorites list in the Application Launcher
+    echo "DELETE FROM 'ResourceLink'; INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:discord.desktop'), (':global','org.kde.plasma.favorites.applications','applications:org.kde.kate.desktop'), (':global','org.kde.plasma.favorites.applications','applications:org.bunkus.mkvtoolnix-gui.desktop'), (':global','org.kde.plasma.favorites.applications','applications:org.qbittorrent.qBittorrent.desktop'), (':global','org.kde.plasma.favorites.applications','applications:steam.desktop'), (':global','org.kde.plasma.favorites.applications','applications:systemsettings.desktop');" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
 }
 
 config_auto_login() {
