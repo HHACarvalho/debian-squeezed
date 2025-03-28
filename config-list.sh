@@ -41,6 +41,7 @@ system_config() {
     config_discord
     config_dolphin
     config_globals
+    config_keyboard
     config_krunner
     config_mangohud
     config_spell_checker
@@ -136,6 +137,16 @@ config_globals() {
 
     # Applies the Breeze Dark theme
     kwriteconfig6 --file ~/.config/kdeglobals --group KDE --key LookAndFeelPackage "org.kde.breezedark.desktop"
+}
+
+config_keyboard() {
+
+    # Adds both portuguese and english keyboard layouts
+    kwriteconfig6 --file ~/.config/kxkbrc --group Layout --key LayoutList "pt,us"
+    kwriteconfig6 --file ~/.config/kxkbrc --group Layout --key Use "true"
+
+    # Defines Shift+F9 as the keyboard shortcut to alternate between keyboard layouts
+    kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 8 --group Applets --group 9 --group Shortcuts --key global "Shift+F9"
 }
 
 config_krunner() {
