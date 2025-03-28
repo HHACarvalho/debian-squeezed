@@ -8,7 +8,6 @@ purge_list=(
     gimp
     graphviz
     gsfonts
-    hunspell-en-us
     imagemagick*
     installation-report
     juk

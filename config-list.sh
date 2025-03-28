@@ -43,6 +43,7 @@ system_config() {
     config_globals
     config_krunner
     config_mangohud
+    config_spell_checker
     config_sticky_keys
     config_system_tray
     config_taskbar
@@ -152,6 +153,17 @@ config_mangohud() {
 
     # Enables MangoHud by default in games
     echo -e "\nexport MANGOHUD=1" >>~/.profile
+}
+
+config_spell_checker() {
+
+    # Install the portuguese dictionary
+    sudo apt install hunspell-pt-pt
+
+    # Enables the spell checker by default and adds both english and portuguese as preferred languages
+    mkdir -p ~/.config/KDE/
+    kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key checkerEnabledByDefault "true"
+    kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key preferredLanguages "en_US, pt_PT"
 }
 
 config_sticky_keys() {
