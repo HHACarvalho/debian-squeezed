@@ -13,6 +13,8 @@ curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/hea
 ### Downloading the script
 
 ```sh
+sudo apt update
+sudo apt install curl -y
 curl -fsSLO https://github.com/HHACarvalho/debian-squeezed/archive/refs/heads/main.zip
 unzip main.zip
 cd debian-squeezed-main/
