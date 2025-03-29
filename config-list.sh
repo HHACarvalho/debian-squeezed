@@ -12,6 +12,7 @@ config_list=(
     globals
     krunner
     mangohud
+    night_light
     power
     sticky-keys
     system-tray
@@ -45,6 +46,7 @@ system_config() {
     config_keyboard
     config_krunner
     config_mangohud
+    config_night_light
     config_power
     config_spell_checker
     config_sticky_keys
@@ -166,6 +168,14 @@ config_mangohud() {
 
     # Enables MangoHud by default in games
     echo -e "\nexport MANGOHUD=1" >>~/.profile
+}
+
+config_night_light() {
+
+    # Activates the night light
+    kwriteconfig6 --file ~/.config/kwinrc --group NightColor --key Active "true"
+    kwriteconfig6 --file ~/.config/kwinrc --group NightColor --key Mode "Constant"
+    kwriteconfig6 --file ~/.config/kwinrc --group NightColor --key NightTemperature "6200"
 }
 
 config_power() {
