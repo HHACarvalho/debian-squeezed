@@ -17,6 +17,7 @@ config_list=(
     sticky-keys
     system-tray
     taskbar
+    vlc
     wallet
 )
 
@@ -52,6 +53,7 @@ system_config() {
     config_sticky_keys
     config_system_tray
     config_taskbar
+    config_vlc
     config_wallet
 }
 
@@ -220,6 +222,15 @@ config_taskbar() {
 
     # Pins Brave, Dolphin and Konsole to the Taskbar
     kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 2 --group Applets --group 5 --group Configuration --group General --key launchers "applications:brave-browser.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.konsole.desktop"
+}
+
+config_vlc() {
+
+    # Disables hardware acceleration by default and sets the short jump size to 4 seconds
+    sed -i -E 's/^#?(avcodec-hw)=.*/\1=none/; s/^#?(short-jump-size)=.*/\1=4/' ~/.config/vlc/vlcrc
+
+    # Sets VLC as the default application for MKV files
+    kwriteconfig6 --file ~/.config/mimeapps.list --group "Added Associations" --key "video/x-matroska" "vlc.desktop;org.bunkus.mkvtoolnix-gui.desktop;"
 }
 
 config_wallet() {
