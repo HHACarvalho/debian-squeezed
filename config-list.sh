@@ -12,6 +12,7 @@ config_list=(
     globals
     krunner
     mangohud
+    power
     sticky-keys
     system-tray
     taskbar
@@ -44,6 +45,7 @@ system_config() {
     config_keyboard
     config_krunner
     config_mangohud
+    config_power
     config_spell_checker
     config_sticky_keys
     config_system_tray
@@ -164,6 +166,19 @@ config_mangohud() {
 
     # Enables MangoHud by default in games
     echo -e "\nexport MANGOHUD=1" >>~/.profile
+}
+
+config_power() {
+
+    # Prevents automatic screen lock
+    kwriteconfig6 --file ~/.config/kscreenlockerrc --group Daemon --key Autolock "false"
+    kwriteconfig6 --file ~/.config/kscreenlockerrc --group Daemon --key Timeout "0"
+
+    # Prevents sleep when inactive
+    kwriteconfig6 --file ~/.config/powerdevilrc --group AC --group AutoSuspendAction --key PowerButtonAction "0"
+
+    # Changes the power button's behaviour to shutdown
+    kwriteconfig6 --file ~/.config/powerdevilrc --group AC --group SuspendAndShutdown --key PowerButtonAction "8"
 }
 
 config_spell_checker() {
