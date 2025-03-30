@@ -35,6 +35,7 @@ purge_list=(
     pim-*
     plasma-browser-integration
     plasma-vault
+    plasma-welcome
     plasma-widgets-addons
     qsynth
     samba-*
