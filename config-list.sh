@@ -75,6 +75,9 @@ config_app_launcher() {
 
     # Adds Discord, Kate, MKVToolNix, qBittorrent, Steam and System Settings to the favorites list in the Application Launcher
     echo "DELETE FROM 'ResourceLink'; INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:discord.desktop'), (':global','org.kde.plasma.favorites.applications','applications:org.kde.kate.desktop'), (':global','org.kde.plasma.favorites.applications','applications:org.bunkus.mkvtoolnix-gui.desktop'), (':global','org.kde.plasma.favorites.applications','applications:org.qbittorrent.qBittorrent.desktop'), (':global','org.kde.plasma.favorites.applications','applications:steam.desktop'), (':global','org.kde.plasma.favorites.applications','applications:systemsettings.desktop');" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
+
+    #Uninstalls prerequisite
+    sudo apt purge sqlite3 -y
 }
 
 config_auto_login() {
@@ -136,6 +139,7 @@ config_dolphin() {
     kwriteconfig6 --file ~/.config/dolphinrc --group General --key ShowStatusBar "false"
 
     # Customizes the toolbar's appearance
+    mkdir -p ~/.local/share/kxmlgui5/dolphin/
     echo -e '<!DOCTYPE gui>\n<gui translationDomain="kxmlgui5" name="dolphin" version="38">\n <ToolBar alreadyVisited="1" name="mainToolBar" noMerge="1">\n  <text translationDomain="dolphin" context="@title:menu">Main Toolbar</text>\n  <Action name="go_back"/>\n  <Action name="go_forward"/>\n  <Separator name="separator_0"/>\n  <Action name="go_up"/>\n  <Separator name="separator_1"/>\n  <Action name="icons"/>\n  <Action name="details"/>\n  <Action name="url_navigators"/>\n  <Action name="hamburger_menu"/>\n </ToolBar>\n <ActionProperties scheme="Default">\n  <Action priority="0" name="go_back"/>\n  <Action priority="0" name="go_forward"/>\n  <Action priority="0" name="go_up"/>\n  <Action priority="0" name="icons"/>\n  <Action priority="0" name="details"/>\n </ActionProperties>\n</gui>' >~/.local/share/kxmlgui5/dolphin/dolphinui.rc
 }
 
@@ -152,7 +156,7 @@ config_keyboard() {
     kwriteconfig6 --file ~/.config/kxkbrc --group Layout --key Use "true"
 
     # Defines Shift+F9 as the keyboard shortcut to alternate between keyboard layouts
-    kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 8 --group Applets --group 9 --group Shortcuts --key global "Shift+F9"
+    kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 8 --group Applets --group 13 --group Shortcuts --key global "Shift+F9"
 }
 
 config_krunner() {
@@ -184,10 +188,11 @@ config_power() {
 
     # Prevents automatic screen lock
     kwriteconfig6 --file ~/.config/kscreenlockerrc --group Daemon --key Autolock "false"
+    kwriteconfig6 --file ~/.config/kscreenlockerrc --group Daemon --key LockOnResume "false"
     kwriteconfig6 --file ~/.config/kscreenlockerrc --group Daemon --key Timeout "0"
 
     # Prevents sleep when inactive
-    kwriteconfig6 --file ~/.config/powerdevilrc --group AC --group AutoSuspendAction --key PowerButtonAction "0"
+    kwriteconfig6 --file ~/.config/powerdevilrc --group AC --group SuspendAndShutdown --key AutoSuspendAction "0"
 
     # Changes the power button's behaviour to shutdown
     kwriteconfig6 --file ~/.config/powerdevilrc --group AC --group SuspendAndShutdown --key PowerButtonAction "8"
@@ -227,7 +232,8 @@ config_taskbar() {
 config_vlc() {
 
     # Disables hardware acceleration by default and sets the short jump size to 4 seconds
-    sed -i -E 's/^#?(avcodec-hw)=.*/\1=none/; s/^#?(short-jump-size)=.*/\1=4/' ~/.config/vlc/vlcrc
+    mkdir -p ~/.config/vlc/
+    echo -e "avcodec-hw=none\nshort-jump-size=4" >~/.config/vlc/vlcrc
 
     # Sets VLC as the default application for MKV files
     kwriteconfig6 --file ~/.config/mimeapps.list --group "Added Associations" --key "video/x-matroska" "vlc.desktop;org.bunkus.mkvtoolnix-gui.desktop;"
