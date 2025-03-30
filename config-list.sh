@@ -111,6 +111,10 @@ config_caps_lock() {
 
 config_clock() {
 
+    # Enables NTP
+    sudo apt install ntp -y
+    sudo timedatectl set-ntp true
+
     # Changes the date format to dd/MM/yyyy
     kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 2 --group Applets --group 21 --group Configuration --group Appearance --key customDateFormat "dd/MM/yyyy"
     kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 2 --group Applets --group 21 --group Configuration --group Appearance --key dateFormat "custom"
