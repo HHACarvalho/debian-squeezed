@@ -2,6 +2,9 @@
 
 readonly RAW_REPO_URL="https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/"
 
+# Creates a folder for the temporary files
+mkdir /tmp/squeezed/
+
 # Loads the config list
 if [ -e config-list.sh ]; then
     source config-list.sh
@@ -41,7 +44,7 @@ done
 
 # Performs the curl-assisted installations
 for app in ${!install_list_curl[@]}; do
-    curl -fLo /tmp/$app.deb ${install_list_curl[$app]} && sudo apt install /tmp/$app.deb -y && rm /tmp/$app.deb
+    curl -fLo /tmp/squeezed/$app.deb ${install_list_curl[$app]} && sudo apt install /tmp/squeezed/$app.deb -y
 done
 
 # Performs the apt installations
@@ -62,6 +65,9 @@ sudo apt clean -y                    # Clears the package cache
 
 # System configuration
 system_config
+
+# Deletes the temporary files folder
+rm -r /tmp/squeezed/
 
 # Restart the system
 read -n 1 -s -p "Press any key to continue..."
