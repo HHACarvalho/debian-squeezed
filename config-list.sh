@@ -156,7 +156,7 @@ config_keyboard() {
     kwriteconfig6 --file ~/.config/kxkbrc --group Layout --key Use "true"
 
     # Defines Shift+F9 as the keyboard shortcut to alternate between keyboard layouts
-    kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 8 --group Applets --group 13 --group Shortcuts --key global "Shift+F9"
+    kwriteconfig6 --file ~/.config/kglobalshortcutsrc --group "KDE Keyboard Layout Switcher" --key "Switch to Next Keyboard Layout" "Shift+F9,Meta+Alt+K,Switch to Next Keyboard Layout"
 }
 
 config_krunner() {
