@@ -70,6 +70,4 @@ system_config
 rm -r /tmp/squeezed/
 
 # Restart the system
-read -n 1 -s -p "Press any key to continue..."
-echo -e "\nRebooting..."
 sudo reboot
