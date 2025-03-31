@@ -6,24 +6,24 @@ readonly RAW_REPO_URL="https://raw.githubusercontent.com/HHACarvalho/debian-sque
 mkdir /tmp/squeezed/
 
 # Loads the config list
-if [ -e config-list.sh ]; then
-    source config-list.sh
+if [ -e list-config.sh ]; then
+    source list-config.sh
 else
-    source <(curl -fsS ${RAW_REPO_URL}config-list.sh)
+    source <(curl -fsS ${RAW_REPO_URL}list-config.sh)
 fi
 
 # Loads the install list
-if [ -e install-list.sh ]; then
-    source install-list.sh
+if [ -e list-install.sh ]; then
+    source list-install.sh
 else
-    source <(curl -fsS ${RAW_REPO_URL}install-list.sh)
+    source <(curl -fsS ${RAW_REPO_URL}list-install.sh)
 fi
 
 # Loads the purge list
-if [ -e purge-list.sh ]; then
-    source purge-list.sh
+if [ -e list-purge.sh ]; then
+    source list-purge.sh
 else
-    source <(curl -fsS ${RAW_REPO_URL}purge-list.sh)
+    source <(curl -fsS ${RAW_REPO_URL}list-purge.sh)
 fi
 
 # Sources configuration
@@ -51,10 +51,10 @@ done
 sudo apt install ${install_list_apt[@]} -y
 
 # Installs and configures the NVIDIA GPU driver
-if [ -e gpu-nvidia.sh ]; then
-    bash gpu-nvidia.sh nvidia
+if [ -e gpu-install.sh ]; then
+    bash gpu-install.sh nvidia
 else
-    bash <(curl -fsS ${RAW_REPO_URL}gpu-nvidia.sh) nvidia
+    bash <(curl -fsS ${RAW_REPO_URL}gpu-install.sh) nvidia
 fi
 
 # Clean-up
