@@ -45,7 +45,7 @@ system_config() {
     config_discord
     config_dolphin
     config_globals
-    config_hibernate
+    #config_hibernate
     config_keyboard
     config_krunner
     config_mangohud
