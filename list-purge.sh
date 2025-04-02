@@ -24,7 +24,7 @@ purge_list=(
     korganizer
     kup-backup
     kuserfeedback-doc
-    kwalletmanager
+    #kwalletmanager
     kwrite
     less
     libreoffice*

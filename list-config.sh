@@ -10,6 +10,7 @@ config_list=(
     discord
     dolphin
     globals
+    hibernate
     krunner
     mangohud
     night_light
@@ -44,6 +45,7 @@ system_config() {
     config_discord
     config_dolphin
     config_globals
+    #config_hibernate
     config_keyboard
     config_krunner
     config_mangohud
@@ -54,7 +56,7 @@ system_config() {
     config_system_tray
     config_taskbar
     config_vlc
-    config_wallet
+    #config_wallet
 }
 
 config_accessibility() {
@@ -127,7 +129,7 @@ config_discord() {
 
     # Launches Discord on startup
     mkdir -p ~/.config/autostart/
-    echo -e "[Desktop Entry]\nExec=bash -c 'sleep 3 && /usr/share/discord/Discord'\nIcon=discord\nName=Discord\nType=Application" >~/.config/autostart/discord.desktop
+    echo -e "[Desktop Entry]\nExec=bash -c 'sleep 5 && /usr/share/discord/Discord'\nIcon=discord\nName=Discord\nType=Application" >~/.config/autostart/discord.desktop
 }
 
 config_dolphin() {
@@ -151,6 +153,34 @@ config_globals() {
 
     # Applies the Breeze Dark theme
     kwriteconfig6 --file ~/.config/kdeglobals --group KDE --key LookAndFeelPackage "org.kde.breezedark.desktop"
+}
+
+config_hibernate() {
+
+    # Create the swap file
+    sudo fallocate -l 16G /swapfile
+
+    # Sets the permissions to root only
+    sudo chmod 600 /swapfile
+
+    # Format the file as swap (UUID)
+    sudo mkswap /swapfile
+
+    # Activate the swap file (session)
+    sudo swapon /swapfile
+
+    # Activate the swap file (permanent)
+    echo "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null
+
+    # Disables swappiness
+    echo "vm.swappiness=0" | sudo tee -a /etc/sysctl.conf >/dev/null
+
+    # Adds the resume option to grub's config
+    echo "resume=UUID=$(sudo findmnt / -no UUID) resume_offset=$(sudo filefrag -v /swapfile | awk 'NR==4 {print $4}' | sed 's/\.\.//')"
+
+    # Updates grub and initramfs
+    sudo update-grub
+    sudo update-initramfs -u
 }
 
 config_keyboard() {
