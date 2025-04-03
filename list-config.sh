@@ -56,7 +56,7 @@ system_config() {
     config_system_tray
     config_taskbar
     config_vlc
-    #config_wallet
+    config_wallet
 }
 
 config_accessibility() {
