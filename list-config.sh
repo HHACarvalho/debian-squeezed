@@ -2,21 +2,23 @@
 
 config_list=(
     accessibility
-    app-launcher
-    auto-login
+    app_launcher
+    auto_login
     boot
-    caps-lock
+    caps_lock
     clock
     discord
     dolphin
     globals
-    hibernate
+    keyboard
     krunner
     mangohud
     night_light
     power
-    sticky-keys
-    system-tray
+    spell_checker
+    sticky_keys
+    swapfile
+    system_tray
     taskbar
     vlc
     wallet
@@ -52,7 +54,7 @@ system_config() {
     config_power
     config_spell_checker
     config_sticky_keys
-    config_swapfile
+    #config_swapfile
     config_system_tray
     config_taskbar
     config_vlc
