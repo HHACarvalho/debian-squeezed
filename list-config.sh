@@ -158,7 +158,7 @@ config_globals() {
 config_hibernate() {
 
     # Create the swap file
-    sudo fallocate -l 16G /swapfile
+    sudo fallocate -l 64G /swapfile
 
     # Sets the permissions to root only
     sudo chmod 600 /swapfile
@@ -170,17 +170,22 @@ config_hibernate() {
     sudo swapon /swapfile
 
     # Activate the swap file (permanent)
-    echo "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null
+    echo -e "\n/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null
 
     # Disables swappiness
-    echo "vm.swappiness=0" | sudo tee -a /etc/sysctl.conf >/dev/null
+    echo "vm.swappiness=0" | sudo tee /etc/sysctl.d/swappiness.conf >/dev/null
 
-    # Adds the resume option to grub's config
+    sudo blkid /swapfile                                                 # UUID swapfile
+    sudo findmnt / -no UUID                                              # UUID root
+    sudo filefrag -v /swapfile | awk 'NR==4 {print $4}' | sed 's/\.\.//' # Offset
+
+    # Updates grub's config
     echo "resume=UUID=$(sudo findmnt / -no UUID) resume_offset=$(sudo filefrag -v /swapfile | awk 'NR==4 {print $4}' | sed 's/\.\.//')"
-
-    # Updates grub and initramfs
     sudo update-grub
-    sudo update-initramfs -u
+
+    # Update initramfs's config
+    echo "RESUME=UUID=$(sudo findmnt / -no UUID) resume_offset=$(sudo filefrag -v /swapfile | awk 'NR==4 {print $4}' | sed 's/\.\.//')" | sudo tee /etc/initramfs-tools/conf.d/resume >/dev/null
+    sudo update-initramfs -k all -u
 }
 
 config_keyboard() {
