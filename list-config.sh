@@ -45,7 +45,6 @@ system_config() {
     config_discord
     config_dolphin
     config_globals
-    #config_hibernate
     config_keyboard
     config_krunner
     config_mangohud
@@ -53,6 +52,7 @@ system_config() {
     config_power
     config_spell_checker
     config_sticky_keys
+    config_swapfile
     config_system_tray
     config_taskbar
     config_vlc
@@ -155,39 +155,6 @@ config_globals() {
     kwriteconfig6 --file ~/.config/kdeglobals --group KDE --key LookAndFeelPackage "org.kde.breezedark.desktop"
 }
 
-config_hibernate() {
-
-    # Create the swap file
-    sudo fallocate -l 64G /swapfile
-
-    # Sets the permissions to root only
-    sudo chmod 600 /swapfile
-
-    # Format the file as swap (UUID)
-    sudo mkswap /swapfile
-
-    # Activate the swap file (session)
-    sudo swapon /swapfile
-
-    # Activate the swap file (permanent)
-    echo -e "\n/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null
-
-    # Disables swappiness
-    echo "vm.swappiness=0" | sudo tee /etc/sysctl.d/swappiness.conf >/dev/null
-
-    sudo blkid /swapfile                                                 # UUID swapfile
-    sudo findmnt / -no UUID                                              # UUID root
-    sudo filefrag -v /swapfile | awk 'NR==4 {print $4}' | sed 's/\.\.//' # Offset
-
-    # Updates grub's config
-    echo "resume=UUID=$(sudo findmnt / -no UUID) resume_offset=$(sudo filefrag -v /swapfile | awk 'NR==4 {print $4}' | sed 's/\.\.//')"
-    sudo update-grub
-
-    # Update initramfs's config
-    echo "RESUME=UUID=$(sudo findmnt / -no UUID) resume_offset=$(sudo filefrag -v /swapfile | awk 'NR==4 {print $4}' | sed 's/\.\.//')" | sudo tee /etc/initramfs-tools/conf.d/resume >/dev/null
-    sudo update-initramfs -k all -u
-}
-
 config_keyboard() {
 
     # Adds both portuguese and english keyboard layouts
@@ -252,6 +219,24 @@ config_sticky_keys() {
 
     # Enables the Hybrid asynchronous mode on IBus
     echo -e "\nexport IBUS_ENABLE_SYNC_MODE=2" >>~/.profile
+}
+
+config_swapfile() {
+
+    # Create the swap file
+    sudo fallocate -l 64G /swapfile
+
+    # Sets the permissions to root only
+    sudo chmod 600 /swapfile
+
+    # Format the file as swap (UUID)
+    sudo mkswap /swapfile
+
+    # Activate the swap file (session)
+    sudo swapon /swapfile
+
+    # Activate the swap file (permanent)
+    echo -e "\n/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab >/dev/null
 }
 
 config_system_tray() {
