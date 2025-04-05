@@ -189,7 +189,7 @@ config_night_light() {
     # Activates the night light
     kwriteconfig6 --file ~/.config/kwinrc --group NightColor --key Active "true"
     kwriteconfig6 --file ~/.config/kwinrc --group NightColor --key Mode "Constant"
-    kwriteconfig6 --file ~/.config/kwinrc --group NightColor --key NightTemperature "6200"
+    kwriteconfig6 --file ~/.config/kwinrc --group NightColor --key NightTemperature "6000"
 }
 
 config_power() {
