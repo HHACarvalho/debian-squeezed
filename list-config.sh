@@ -40,7 +40,7 @@ system_config() {
 
     config_accessibility
     config_app_launcher
-    config_auto_login
+    #config_auto_login
     config_boot
     config_caps_lock
     config_clock
@@ -226,7 +226,7 @@ config_sticky_keys() {
 config_swapfile() {
 
     # Create the swap file
-    sudo fallocate -l 64G /swapfile
+    sudo fallocate -l 16G /swapfile
 
     # Sets the permissions to root only
     sudo chmod 600 /swapfile
