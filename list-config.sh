@@ -3,7 +3,6 @@
 config_list=(
     accessibility
     app_launcher
-    auto_login
     boot
     caps_lock
     clock
@@ -21,7 +20,6 @@ config_list=(
     system_tray
     taskbar
     vlc
-    wallet
 )
 
 sources_config() {
@@ -40,7 +38,6 @@ system_config() {
 
     config_accessibility
     config_app_launcher
-    #config_auto_login
     config_boot
     config_caps_lock
     config_clock
@@ -58,7 +55,6 @@ system_config() {
     config_system_tray
     config_taskbar
     config_vlc
-    #config_wallet
 }
 
 config_accessibility() {
@@ -82,13 +78,6 @@ config_app_launcher() {
 
     #Uninstalls prerequisite
     sudo apt purge sqlite3 -y
-}
-
-config_auto_login() {
-
-    # Enables automatic password-less login
-    sudo mkdir -p /etc/sddm.conf.d/
-    echo -e "[Autologin]\nRelogin=false\nSession=plasma\nUser=$(whoami)\n\n[General]\nHaltCommand=\nRebootCommand=\n\n[Theme]\nCurrent=\n\n[Users]\nMaximumUid=60000\nMinimumUid=1000" | sudo tee /etc/sddm.conf.d/kde_settings.conf >/dev/null
 }
 
 config_boot() {
@@ -263,10 +252,4 @@ config_vlc() {
 
     # Sets VLC as the default application for MKV files
     kwriteconfig6 --file ~/.config/mimeapps.list --group "Added Associations" --key "video/x-matroska" "vlc.desktop;org.bunkus.mkvtoolnix-gui.desktop;"
-}
-
-config_wallet() {
-
-    # Disables KDE wallet subsystem
-    kwriteconfig6 --file ~/.config/kwalletrc --group Wallet --key Enabled "false"
 }
