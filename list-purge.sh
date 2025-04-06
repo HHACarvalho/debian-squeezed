@@ -36,7 +36,6 @@ purge_list=(
     plasma-browser-integration
     plasma-vault
     plasma-welcome
-    plasma-widgets-addons
     qsynth
     samba-*
     smbclient
