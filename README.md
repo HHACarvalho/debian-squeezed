@@ -1,6 +1,6 @@
 # Debian Squeezed
 
-A lightweight script that streamlines a fresh Debian KDE installation by: installing essential packages, removing unnecessary ones and configuring your OS.
+A lightweight script that streamlines a fresh Debian KDE installation by: installing essential packages, removing unnecessary ones and configuring the OS.
 
 ### Running the script
 
