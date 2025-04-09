@@ -2,6 +2,7 @@
 
 install_list_apt=(
     brave-browser
+    gaupol
     mkvtoolnix-gui
     qbittorrent
     synaptic
