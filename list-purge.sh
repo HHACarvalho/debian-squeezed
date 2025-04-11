@@ -25,6 +25,7 @@ purge_list=(
     kup-backup
     kuserfeedback-doc
     kwrite
+    laptop-detect
     less
     libreoffice*
     lynx
@@ -38,5 +39,6 @@ purge_list=(
     qsynth
     samba-*
     smbclient
+    tasksel
     vim-*
 )
