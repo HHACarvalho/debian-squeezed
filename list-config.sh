@@ -1,27 +1,5 @@
 #!/bin/bash
 
-config_list=(
-    accessibility
-    app_launcher
-    boot
-    caps_lock
-    clock
-    discord
-    dolphin
-    globals
-    keyboard
-    krunner
-    mangohud
-    night_light
-    power
-    spell_checker
-    sticky_keys
-    swapfile
-    system_tray
-    taskbar
-    vlc
-)
-
 sources_config() {
 
     # Adds the "contrib" and "non-free" components to the debian sources
