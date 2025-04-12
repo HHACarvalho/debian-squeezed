@@ -18,6 +18,7 @@ system_config() {
     config_app_launcher
     config_boot
     config_caps_lock
+    config_clipboard
     config_clock
     config_discord
     config_dolphin
@@ -76,6 +77,13 @@ config_caps_lock() {
 
     kwriteconfig6 --file ~/.config/kxkbrc --group Layout --key Options custom:caps_lock_fix
     kwriteconfig6 --file ~/.config/kxkbrc --group Layout --key ResetOldOptions true
+}
+
+config_clipboard() {
+
+    # Disables restoring between sessions and sets the limit to 5 clipboard entries
+    kwriteconfig6 --file ~/.config/klipperrc --group General --key KeepClipboardContents "false"
+    kwriteconfig6 --file ~/.config/klipperrc --group General --key MaxClipItems "5"
 }
 
 config_clock() {
