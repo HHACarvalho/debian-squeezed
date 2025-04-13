@@ -4,6 +4,7 @@ install_list_apt=(
     brave-browser
     gaupol
     mkvtoolnix-gui
+    #puddletag
     qbittorrent
     synaptic
     vlc
