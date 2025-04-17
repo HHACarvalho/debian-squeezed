@@ -34,6 +34,7 @@ system_config() {
     #config_swapfile
     config_system_tray
     config_taskbar
+    #config_trash
     config_vlc
 }
 
@@ -250,6 +251,12 @@ config_taskbar() {
 
     # Pins Brave, Dolphin and Konsole to the Taskbar
     kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 2 --group Applets --group 5 --group Configuration --group General --key launchers "applications:brave-browser.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.konsole.desktop"
+}
+
+config_trash() {
+
+    # Erases files from the recycle bin if they have been there for more than 1 day
+    echo -e "[/home/user/.local/share/Trash]\nDays=1\nLimitReachedAction=0\nPercent=10\nUseSizeLimit=true\nUseTimeLimit=true" | sudo tee -a ~/.config/ktrashrc >/dev/null
 }
 
 config_vlc() {
