@@ -7,7 +7,7 @@ A lightweight script that streamlines a fresh Debian KDE installation by: instal
 ```sh
 sudo apt update
 sudo apt install curl -y
-bash <(curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/setup.sh) 2>&1 | tee ~/Desktop/setup.log
+bash <(curl -fsS https://raw.githubusercontent.com/HHACarvalho/debian-squeezed/refs/heads/main/setup.sh)
 ```
 
 ### Downloading the script
@@ -24,7 +24,7 @@ chmod +x setup.sh
 ### Running the downloaded script
 
 ```sh
-bash setup.sh 2>&1 | tee ~/Desktop/setup.log
+bash setup.sh
 ```
 
 ---
