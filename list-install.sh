@@ -2,6 +2,7 @@
 
 install_list_apt=(
     brave-browser
+    #chiaki
     gaupol
     mkvtoolnix-gui
     #puddletag
