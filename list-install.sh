@@ -5,7 +5,7 @@ install_list_apt=(
     #chiaki
     gaupol
     mkvtoolnix-gui
-    #puddletag
+    puddletag
     qbittorrent
     synaptic
     #timeshift
