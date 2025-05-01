@@ -24,7 +24,6 @@ purge_list=(
     korganizer
     kup-backup
     kuserfeedback-doc
-    kwrite
     laptop-detect
     less
     libreoffice*
