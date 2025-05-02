@@ -27,6 +27,7 @@ system_config() {
     config_krunner
     config_locale_purge
     config_mangohud
+    config_network
     config_night_light
     config_power
     config_spell_checker
@@ -180,6 +181,20 @@ config_mangohud() {
 
     # Enables MangoHud by default in games
     echo -e "\nexport MANGOHUD=1" >>~/.profile
+}
+
+config_network() {
+
+    # Sets a static IPv4 address
+    nmcli connection modify "Wired connection 1" ipv4.addresses "192.168.1.88/24"
+    nmcli connection modify "Wired connection 1" ipv4.gateway "192.168.1.1"
+    nmcli connection modify "Wired connection 1" ipv4.method "manual"
+
+    # Sets Cloudflare's DNS address
+    nmcli connection modify "Wired connection 1" ipv4.dns "1.1.1.1"
+
+    # Restarts the network connection
+    nmcli connection down "Wired connection 1" && nmcli connection up "Wired connection 1"
 }
 
 config_night_light() {
