@@ -34,7 +34,7 @@ system_config() {
     #config_swapfile
     config_system_tray
     config_taskbar
-    #config_trash
+    config_trash
     config_vlc
 }
 
