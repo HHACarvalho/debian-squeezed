@@ -7,7 +7,6 @@ install_list_apt=(
     puddletag
     qbittorrent
     synaptic
-    #timeshift
     vlc
 )
 
