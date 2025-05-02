@@ -256,7 +256,7 @@ config_taskbar() {
 config_trash() {
 
     # Erases files from the recycle bin if they have been there for more than 1 day
-    echo -e "[/home/user/.local/share/Trash]\nDays=1\nLimitReachedAction=0\nPercent=10\nUseSizeLimit=true\nUseTimeLimit=true" | sudo tee -a ~/.config/ktrashrc >/dev/null
+    echo -e "[/home/user/.local/share/Trash]\nDays=1\nLimitReachedAction=0\nPercent=10\nUseSizeLimit=true\nUseTimeLimit=true" | sudo tee ~/.config/ktrashrc >/dev/null
 }
 
 config_vlc() {
