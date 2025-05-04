@@ -17,6 +17,7 @@ sudo apt update
 sudo apt install curl -y
 curl -fsSLO https://github.com/HHACarvalho/debian-squeezed/archive/refs/heads/main.zip
 unzip main.zip
+rm main.zip
 cd debian-squeezed-main/
 chmod +x setup.sh
 ```
