@@ -21,6 +21,7 @@ system_config() {
     config_clipboard
     config_clock
     config_discord
+    config_discover
     config_dolphin
     config_globals
     config_keyboard
@@ -119,6 +120,15 @@ config_discord() {
     # Launches Discord on startup
     mkdir -p ~/.config/autostart/
     echo -e "[Desktop Entry]\nExec=bash -c 'sleep 5 && /usr/share/discord/Discord'\nIcon=discord\nName=Discord\nType=Application" >~/.config/autostart/discord.desktop
+}
+
+config_discover() {
+
+    # Install Discover's flatpak backend
+    sudo apt install flatpak plasma-discover-backend-flatpak -y
+
+    # Sets Flathub as the default source
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 }
 
 config_dolphin() {
