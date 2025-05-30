@@ -52,9 +52,9 @@ sudo apt install ${install_list_apt[@]} -y
 
 # Installs and configures the NVIDIA GPU driver
 if [ -e gpu-install.sh ]; then
-    bash gpu-install.sh nvidia
+    bash gpu-install.sh nvidia stable
 else
-    bash <(curl -fsS ${RAW_REPO_URL}gpu-install.sh) nvidia
+    bash <(curl -fsS ${RAW_REPO_URL}gpu-install.sh) nvidia stable
 fi
 
 # Clean-up
