@@ -33,6 +33,9 @@ if [[ "$1" == "nvidia" ]]; then
 
     fi
 
+elif [[ "$1" == "amd" ]]; then
+
+    # TODO
 
 else
     echo -e "Invalid version requested...\nAborting GPU driver installation..."
