@@ -128,7 +128,7 @@ config_discover() {
     sudo apt install flatpak plasma-discover-backend-flatpak -y
 
     # Sets Flathub as the default source
-    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 }
 
 config_dolphin() {
