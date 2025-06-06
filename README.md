@@ -20,12 +20,19 @@ unzip main.zip
 rm main.zip
 cd debian-squeezed-main/
 chmod +x setup.sh
+chmod +x gpu-nvidia.sh
 ```
 
-### Running the downloaded script
+### Running the downloaded scripts
 
 ```sh
 bash setup.sh
+```
+
+### Installing the NVIDIA GPU driver
+
+```sh
+bash gpu-nvidia.sh
 ```
 
 ---
