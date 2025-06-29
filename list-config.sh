@@ -3,7 +3,7 @@
 sources_config() {
 
     # Adds the "contrib" and "non-free" components to the debian sources
-    echo -e "Types: deb deb-src\nURIs: https://deb.debian.org/debian\nSuites: trixie trixie-updates\nComponents: main contrib non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg\n\nTypes: deb deb-src\nURIs: https://security.debian.org/debian-security\nSuites: trixie-security\nComponents: main contrib non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg" | sudo tee /etc/apt/sources.list.d/debian.sources >/dev/null
+    echo -e "Types: deb deb-src\nURIs: https://deb.debian.org/debian\nSuites: testing testing-updates\nComponents: main contrib non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg\n\nTypes: deb deb-src\nURIs: https://security.debian.org/debian-security\nSuites: testing-security\nComponents: main contrib non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg" | sudo tee /etc/apt/sources.list.d/debian.sources >/dev/null
 
     # Deletes the old sources file
     sudo rm /etc/apt/sources.list
@@ -21,7 +21,7 @@ system_config() {
     config_clipboard
     config_clock
     config_discord
-    config_discover
+    #config_discover
     config_dolphin
     config_globals
     config_keyboard
@@ -32,7 +32,6 @@ system_config() {
     config_night_light
     config_power
     config_spell_checker
-    config_sticky_keys
     #config_swapfile
     config_system_tray
     config_taskbar
@@ -119,7 +118,7 @@ config_discord() {
 
     # Launches Discord on startup
     mkdir -p ~/.config/autostart/
-    echo -e "[Desktop Entry]\nExec=bash -c 'sleep 5 && /usr/share/discord/Discord'\nIcon=discord\nName=Discord\nType=Application" >~/.config/autostart/discord.desktop
+    echo -e "[Desktop Entry]\nExec=bash -c 'sleep 3 && /usr/share/discord/Discord'\nIcon=discord\nName=Discord\nType=Application" >~/.config/autostart/discord.desktop
 }
 
 config_discover() {
@@ -240,12 +239,6 @@ config_spell_checker() {
     kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key preferredLanguages "en_US, pt_PT"
 }
 
-config_sticky_keys() {
-
-    # Enables the Hybrid asynchronous mode on IBus
-    echo -e "\nexport IBUS_ENABLE_SYNC_MODE=2" >>~/.profile
-}
-
 config_swapfile() {
 
     # Create the swap file
@@ -267,9 +260,9 @@ config_swapfile() {
 config_system_tray() {
 
     # Disables and hides unnecessary icons on the System Tray
-    kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 8 --group General --key extraItems "org.kde.plasma.devicenotifier,org.kde.plasma.keyboardlayout,org.kde.plasma.notifications,org.kde.plasma.networkmanagement,org.kde.plasma.clipboard,org.kde.plasma.volume,org.kde.plasma.manage-inputmethod,org.kde.plasma.cameraindicator,org.kde.plasma.keyboardindicator,vlc"
-    kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 8 --group General --key hiddenItems "chrome_status_icon_1,org.kde.plasma.clipboard,org.kde.plasma.manage-inputmethod,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardlayout,Discover Notifier_org.kde.DiscoverNotifier,steam,Plasma_microphone,qBittorrent,Xwayland Video Bridge_pipewireToXProxy,plasmashell_microphone,xdg-desktop-portal-kde,org.kde.plasma.notifications,vlc"
-    kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 8 --group General --key knownItems "org.kde.plasma.printmanager,org.kde.plasma.mediacontroller,org.kde.plasma.devicenotifier,org.kde.kscreen,org.kde.plasma.keyboardlayout,org.kde.plasma.notifications,org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,org.kde.plasma.battery,org.kde.plasma.clipboard,org.kde.plasma.bluetooth,org.kde.plasma.volume,org.kde.plasma.cameraindicator,org.kde.plasma.brightness,org.kde.plasma.keyboardindicator"
+    kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 8 --group General --key extraItems "org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.networkmanagement,org.kde.plasma.notifications,org.kde.plasma.volume"
+    kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 8 --group General --key hiddenItems "chrome_status_icon_1,Discover Notifier_org.kde.DiscoverNotifier,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.notifications,Plasma_microphone,plasmashell_microphone,qBittorrent,steam,vlc,xdg-desktop-portal-kde,Xwayland Video Bridge_pipewireToXProxy"
+    kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 8 --group General --key knownItems "org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.brightness,org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.volume"
 }
 
 config_taskbar() {

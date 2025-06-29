@@ -36,8 +36,6 @@ purge_list=(
     plasma-vault
     plasma-welcome
     qsynth
-    samba-*
-    smbclient
     tasksel
     vim-*
 )
