@@ -36,7 +36,6 @@ system_config() {
     config_system_tray
     config_taskbar
     config_trash
-    config_updates
     config_vlc
 }
 
@@ -99,6 +98,9 @@ config_clipboard() {
     # Disables restoring between sessions and sets the limit to 5 clipboard entries
     kwriteconfig6 --file ~/.config/klipperrc --group General --key KeepClipboardContents "false"
     kwriteconfig6 --file ~/.config/klipperrc --group General --key MaxClipItems "5"
+
+    # Disables the confirmation dialog when clearing the clipboard
+    kwriteconfig6 --file ~/.config/plasmashellrc --group "Notification Messages" --key klipperClearHistoryAskAgain "false"
 }
 
 config_clock() {
@@ -276,12 +278,6 @@ config_trash() {
 
     # Erases files from the recycle bin if they have been there for more than 1 day
     echo -e "[/home/user/.local/share/Trash]\nDays=1\nLimitReachedAction=0\nPercent=10\nUseSizeLimit=true\nUseTimeLimit=true" | sudo tee ~/.config/ktrashrc >/dev/null
-}
-
-config_updates() {
-
-    # Disables update notifications
-    kwriteconfig6 --file ~/.config/PlasmaDiscoverUpdates --group Global --key RequiredNotificationInterval "-1"
 }
 
 config_vlc() {
