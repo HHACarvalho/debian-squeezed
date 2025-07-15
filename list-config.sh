@@ -55,17 +55,20 @@ config_app_launcher() {
     # Clears the favorites list
     echo "DELETE FROM 'ResourceLink'" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
 
-    # Adds Discord, Gaupol, Heroic Games Launcher, Kate, MKVToolNix, Puddletag, qBittorrent, Steam, System Settings and Visual Studio Code to the favorites list
+    # Adds Discord, Gaupol, Kate, MKVToolNix, Puddletag, qBittorrent, Steam, System Monitor, System Settings and Visual Studio Code to the favorites list
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:discord.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:io.otsaloma.gaupol.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:heroic.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:org.kde.kate.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:org.bunkus.mkvtoolnix-gui.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:puddletag.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:org.qbittorrent.qBittorrent.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:steam.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
+    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:org.kde.plasma-systemmonitor.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:systemsettings.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:code.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
+
+    # Resets the order of the favorites
+    rm ~/.config/kactivitymanagerd-statsrc
 }
 
 config_boot() {
