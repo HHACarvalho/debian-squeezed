@@ -52,9 +52,6 @@ config_accessibility() {
 
 config_app_launcher() {
 
-    # Installs prerequisite
-    sudo apt install sqlite3 -y
-
     # Clears the favorites list
     echo "DELETE FROM 'ResourceLink'" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
 
@@ -105,8 +102,7 @@ config_clipboard() {
 
 config_clock() {
 
-    # Enables NTP
-    sudo apt install ntp -y
+    # Enables NTP (Network Time Protocol)
     sudo timedatectl set-ntp true
 
     # Changes the date format to dd/MM/yyyy
@@ -233,11 +229,9 @@ config_power() {
 
 config_spell_checker() {
 
-    # Install the portuguese dictionary
-    sudo apt install hunspell-pt-pt
+    mkdir -p ~/.config/KDE/
 
     # Enables the spell checker by default and adds both english and portuguese as preferred languages
-    mkdir -p ~/.config/KDE/
     kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key checkerEnabledByDefault "true"
     kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key preferredLanguages "en_US, pt_PT"
 }

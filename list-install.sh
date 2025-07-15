@@ -3,9 +3,12 @@
 install_list_apt=(
     brave-browser
     gaupol
+    hunspell-pt-pt
     mkvtoolnix-gui
+    ntpsec
     puddletag
     qbittorrent
+    sqlite3
     synaptic
     vlc
 )
