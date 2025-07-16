@@ -31,7 +31,7 @@ system_config() {
     config_network
     config_night_light
     config_power
-    #config_samba
+    config_samba
     config_spell_checker
     #config_swapfile
     config_system_tray
@@ -233,14 +233,17 @@ config_power() {
 
 config_samba() {
 
-    # Create the folder that is going to be shared
-    mkdir ~/Share
+    # Creates the folder that is going to be shared
+    mkdir ~/Shared
+
+    # Creates a backup of the current Samba configuration
+    sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.backup
 
     # Configures the folder as a Samba share
-    echo -e "[Shared]\n   comment = Samba shared folder\n   path = /home/hugo/Shared\n   browseable = yes\n   read only = no\n   guest ok = yes" | sudo tee /etc/samba/smb.conf >/dev/null
+    echo -e "[Shared]\n   comment = Samba shared folder\n   path = /home/$(whoami)/Shared\n   browseable = yes\n   read only = no\n   guest ok = yes" | sudo tee /etc/samba/smb.conf >/dev/null
 
-    # Starts the Samba service
-    sudo service smbd start
+    # Restarts the Samba service
+    sudo systemctl restart smbd
 
     # Sets the password for the Samba share
     echo -e "$(whoami)\n$(whoami)" | sudo smbpasswd -a "$(whoami)"
