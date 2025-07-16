@@ -8,6 +8,7 @@ install_list_apt=(
     ntpsec
     puddletag
     qbittorrent
+    samba
     sqlite3
     synaptic
     vlc
