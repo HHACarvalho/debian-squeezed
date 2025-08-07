@@ -26,7 +26,6 @@ system_config() {
     config_globals
     config_keyboard
     config_krunner
-    config_locale_purge
     config_mangohud
     config_network
     config_night_light
@@ -171,18 +170,6 @@ config_krunner() {
     # Disables Software Center and Web Search Keywords on KRunner
     kwriteconfig6 --file ~/.config/krunnerrc --group Plugins --key krunner_appstreamEnabled "false"
     kwriteconfig6 --file ~/.config/krunnerrc --group Plugins --key krunner_webshortcutsEnabled "false"
-}
-
-config_locale_purge() {
-
-    # Configures localepurge
-    echo -e "MANDELETE\nDONTBOTHERNEWLOCALE\nSHOWFREEDSPACE\n\nen\nen_US.UTF-8" | sudo tee /etc/locale.nopurge >/dev/null
-
-    # Installs localepurge
-    sudo DEBIAN_FRONTEND=noninteractive apt install localepurge -y
-
-    # Runs localepurge
-    sudo localepurge
 }
 
 config_mangohud() {
