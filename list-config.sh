@@ -23,7 +23,6 @@ system_config() {
     config_discord
     #config_discover
     config_dolphin
-    config_globals
     config_keyboard
     config_krunner
     config_mangohud
@@ -35,6 +34,7 @@ system_config() {
     #config_swapfile
     config_system_tray
     config_taskbar
+    config_theme
     config_trash
     config_vlc
 }
@@ -149,12 +149,6 @@ config_dolphin() {
     echo -e '<!DOCTYPE gui>\n<gui translationDomain="kxmlgui5" name="dolphin" version="38">\n <ToolBar alreadyVisited="1" name="mainToolBar" noMerge="1">\n  <text translationDomain="dolphin" context="@title:menu">Main Toolbar</text>\n  <Action name="go_back"/>\n  <Action name="go_forward"/>\n  <Separator name="separator_0"/>\n  <Action name="go_up"/>\n  <Separator name="separator_1"/>\n  <Action name="icons"/>\n  <Action name="details"/>\n  <Action name="url_navigators"/>\n  <Action name="hamburger_menu"/>\n </ToolBar>\n <ActionProperties scheme="Default">\n  <Action priority="0" name="go_back"/>\n  <Action priority="0" name="go_forward"/>\n  <Action priority="0" name="go_up"/>\n  <Action priority="0" name="icons"/>\n  <Action priority="0" name="details"/>\n </ActionProperties>\n</gui>' >~/.local/share/kxmlgui5/dolphin/dolphinui.rc
 }
 
-config_globals() {
-
-    # Applies the Breeze Dark theme
-    kwriteconfig6 --file ~/.config/kdeglobals --group KDE --key LookAndFeelPackage "org.kde.breezedark.desktop"
-}
-
 config_keyboard() {
 
     # Adds both portuguese and english keyboard layouts
@@ -227,7 +221,7 @@ config_samba() {
     sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.backup
 
     # Configures the folder as a Samba share
-    echo -e "[Shared]\n   comment = Samba shared folder\n   path = /home/$(whoami)/Shared\n   browseable = yes\n   read only = no\n   guest ok = yes" | sudo tee /etc/samba/smb.conf >/dev/null
+    echo -e "[Shared]\n   comment = Samba shared folder\n   path = /home/$(whoami)/Shared/\n   browseable = yes\n   read only = no\n   guest ok = yes\n\n[Downloads]\n   comment = Samba shared folder\n   path = /home/$(whoami)/Downloads/\n   browseable = yes\n   read only = no\n   guest ok = yes" | sudo tee /etc/samba/smb.conf >/dev/null
 
     # Restarts the Samba service
     sudo systemctl restart smbd
@@ -277,10 +271,16 @@ config_taskbar() {
     kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 2 --group Applets --group 5 --group Configuration --group General --key launchers "applications:brave-browser.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.konsole.desktop"
 }
 
+config_theme() {
+
+    # Applies the Breeze Dark theme
+    kwriteconfig6 --file ~/.config/kdeglobals --group KDE --key LookAndFeelPackage "org.kde.breezedark.desktop"
+}
+
 config_trash() {
 
     # Erases files from the recycle bin if they have been there for more than 1 day
-    echo -e "[/home/user/.local/share/Trash]\nDays=1\nLimitReachedAction=0\nPercent=10\nUseSizeLimit=true\nUseTimeLimit=true" | sudo tee ~/.config/ktrashrc >/dev/null
+    echo -e "[/home/$(whoami)/.local/share/Trash]\nDays=1\nLimitReachedAction=0\nPercent=10\nUseSizeLimit=true\nUseTimeLimit=true" | sudo tee ~/.config/ktrashrc >/dev/null
 }
 
 config_vlc() {
