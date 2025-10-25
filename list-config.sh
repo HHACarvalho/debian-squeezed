@@ -167,7 +167,7 @@ config_krunner() {
 config_locale_purge() {
 
     # Configures localepurge
-    echo -e "MANDELETE\nDONTBOTHERNEWLOCALE\nSHOWFREEDSPACE\n\nen\nen_US.UTF-8" | sudo tee /etc/locale.nopurge >/dev/null
+    echo -e "MANDELETE\nDONTBOTHERNEWLOCALE\n\nen\nen_US.UTF-8" | sudo tee /etc/locale.nopurge >/dev/null
 
     # Installs localepurge
     sudo DEBIAN_FRONTEND=noninteractive apt install localepurge -y
