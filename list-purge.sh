@@ -26,7 +26,6 @@ purge_list=(
     kuserfeedback-doc
     laptop-detect
     less
-    locales
     lynx
     mariadb-common
     mythes-en-us
