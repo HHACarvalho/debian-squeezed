@@ -3,10 +3,10 @@
 sources_config() {
 
     # Adds the "contrib" and "non-free" components to the debian sources
-    #echo -e "Types: deb deb-src\nURIs: https://deb.debian.org/debian\nSuites: testing testing-updates\nComponents: main contrib non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg\n\nTypes: deb deb-src\nURIs: https://security.debian.org/debian-security\nSuites: testing-security\nComponents: main contrib non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg" | sudo tee /etc/apt/sources.list.d/debian.sources >/dev/null
+    echo -e "Types: deb deb-src\nURIs: https://deb.debian.org/debian\nSuites: trixie trixie-updates\nComponents: contrib main non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg\n\nTypes: deb deb-src\nURIs: https://security.debian.org/debian-security\nSuites: trixie-security\nComponents: contrib main non-free non-free-firmware\nEnabled: yes\nSigned-By: /usr/share/keyrings/debian-archive-keyring.gpg" | sudo tee /etc/apt/sources.list.d/debian.sources >/dev/null
 
     # Deletes the old sources file
-    #sudo rm /etc/apt/sources.list
+    sudo rm /etc/apt/sources.list
 
     # Adds the 32-bit architecture
     sudo dpkg --add-architecture i386
@@ -46,9 +46,6 @@ config_accessibility() {
     kwriteconfig6 --file ~/.config/kaccessrc --group Bell --key SystemBell "false"
     kwriteconfig6 --file ~/.config/kaccessrc --group Keyboard --key AccessXBeep "false"
     kwriteconfig6 --file ~/.config/kwinrc --group Plugins --key shakecursorEnabled "false"
-
-    # Sets the resolution scale to 100% on Wayland
-    kscreen-doctor output.1.scale.1
 }
 
 config_app_launcher() {
