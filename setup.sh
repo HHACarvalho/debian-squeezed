@@ -63,4 +63,4 @@ system_config
 rm -r /tmp/squeezed/
 
 # Restart the system
-sudo reboot
+sudo poweroff
