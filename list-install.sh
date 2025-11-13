@@ -16,6 +16,7 @@ install_list_apt=(
 
 declare -A install_list_curl
 install_list_curl["discord"]="https://discord.com/api/download?platform=linux"
+install_list_curl["jellyfin"]="https://github.com/jellyfin/jellyfin-media-player/releases/download/v1.12.0/jellyfin-media-player_1.12.0-trixie.deb"
 
 declare -A install_list_custom
 install_list_custom["mangohud"]="curl -fLo /tmp/squeezed/mangohud.tar.gz https://github.com/flightlessmango/MangoHud/releases/download/v0.8.1/MangoHud-0.8.1.r0.gfea4292.tar.gz && tar -xzf /tmp/squeezed/mangohud.tar.gz -C /tmp/squeezed/ && cd /tmp/squeezed/MangoHud/ && ./mangohud-setup.sh install"

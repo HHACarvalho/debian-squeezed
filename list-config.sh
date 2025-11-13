@@ -53,9 +53,10 @@ config_app_launcher() {
     # Clears the favorites list
     echo "DELETE FROM 'ResourceLink'" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
 
-    # Adds Discord, Gaupol, Kate, MKVToolNix, Puddletag, qBittorrent, Steam, System Monitor, System Settings and Visual Studio Code to the favorites list
+    # Adds Discord, Gaupol, Jellyfin, Kate, MKVToolNix, Puddletag, qBittorrent, Steam, System Monitor, System Settings and Visual Studio Code to the favorites list
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:discord.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:io.otsaloma.gaupol.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
+    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:com.github.iwalton3.jellyfin-media-player.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:org.kde.kate.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:org.bunkus.mkvtoolnix-gui.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
     echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:puddletag.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
