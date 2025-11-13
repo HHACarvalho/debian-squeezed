@@ -25,3 +25,7 @@ install_list_custom["vscode"]="curl -fLo /tmp/squeezed/vscode.deb 'https://code.
 
 declare -A repo_list
 repo_list["brave"]="sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main' | sudo tee /etc/apt/sources.list.d/brave-browser-release.list >/dev/null"
+
+# Watch out for updates for the following applications:
+# - Jellyfin
+# - MangoHud
