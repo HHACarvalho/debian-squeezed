@@ -19,7 +19,7 @@ install_list_curl["discord"]="https://discord.com/api/download?platform=linux"
 install_list_curl["jellyfin"]="https://github.com/jellyfin/jellyfin-media-player/releases/download/v1.12.0/jellyfin-media-player_1.12.0-trixie.deb"
 
 declare -A install_list_custom
-install_list_custom["mangohud"]="curl -fLo /tmp/squeezed/mangohud.tar.gz https://github.com/flightlessmango/MangoHud/releases/download/v0.8.1/MangoHud-0.8.1.r0.gfea4292.tar.gz && tar -xzf /tmp/squeezed/mangohud.tar.gz -C /tmp/squeezed/ && cd /tmp/squeezed/MangoHud/ && ./mangohud-setup.sh install"
+install_list_custom["mangohud"]="curl -fLo /tmp/squeezed/mangohud.tar.gz https://github.com/flightlessmango/MangoHud/releases/download/v0.8.2/MangoHud-0.8.2.r0.ga37b007.tar.gz && tar -xzf /tmp/squeezed/mangohud.tar.gz -C /tmp/squeezed/ && cd /tmp/squeezed/MangoHud/ && ./mangohud-setup.sh install"
 install_list_custom["steam"]="sudo apt install steam-installer mesa-vulkan-drivers libglx-mesa0:i386 mesa-vulkan-drivers:i386 libgl1-mesa-dri:i386 -y"
 install_list_custom["vscode"]="curl -fLo /tmp/squeezed/vscode.deb 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' && echo 'code code/add-microsoft-repo boolean true' | sudo debconf-set-selections && sudo apt install /tmp/squeezed/vscode.deb -y"
 
