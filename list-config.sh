@@ -27,6 +27,7 @@ system_config() {
     config_krunner
     config_locale_purge
     config_mangohud
+    config_miscellaneous
     config_network
     config_night_light
     config_power
@@ -187,6 +188,12 @@ config_mangohud() {
     if ! grep -q "export MANGOHUD=1" ~/.profile; then
         echo -e "\nexport MANGOHUD=1" >>~/.profile
     fi
+}
+
+config_miscellaneous() {
+
+    # Sets the resolution scale to 100%
+    kwriteconfig6 --file ~/.config/kwinrc --group Xwayland --key AScalee "1"
 }
 
 config_network() {
