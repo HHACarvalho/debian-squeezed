@@ -234,7 +234,7 @@ config_samba() {
     sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.backup
 
     # Configures the folder as a Samba share
-    echo -e "[Shared]\n   comment = Samba shared folder\n   path = /home/$(whoami)/Shared/\n   browseable = yes\n   read only = no\n   guest ok = yes\n\n[Downloads]\n   comment = Samba shared folder\n   path = /home/$(whoami)/Downloads/\n   browseable = yes\n   read only = no\n   guest ok = yes" | sudo tee /etc/samba/smb.conf >/dev/null
+    echo -e "[Shared]\n   comment = Samba shared folder\n   path = /home/$(whoami)/Shared/\n   browseable = yes\n   read only = no\n   guest ok = yes" | sudo tee /etc/samba/smb.conf >/dev/null
 
     # Restarts the Samba service
     sudo systemctl restart smbd
