@@ -120,7 +120,7 @@ config_discord() {
 
     # Launches Discord on startup
     mkdir -p ~/.config/autostart/
-    echo -e "[Desktop Entry]\nExec=bash -c 'sleep 3 && /usr/share/discord/Discord'\nIcon=discord\nName=Discord\nType=Application" >~/.config/autostart/discord.desktop
+    echo -e "[Desktop Entry]\nExec=bash -c 'sleep 3 && /usr/bin/discord'\nIcon=discord\nName=Discord\nType=Application" >~/.config/autostart/discord.desktop
 }
 
 config_discover() {
