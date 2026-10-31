@@ -24,7 +24,7 @@ install_list_custom["steam"]="sudo apt install steam-installer mesa-vulkan-drive
 install_list_custom["vscode"]="curl -fLo /tmp/squeezed/vscode.deb 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' && echo 'code code/add-microsoft-repo boolean true' | sudo debconf-set-selections && sudo apt install /tmp/squeezed/vscode.deb -y"
 
 declare -A repo_list
-repo_list["brave"]="sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main' | sudo tee /etc/apt/sources.list.d/brave-browser-release.list >/dev/null"
+repo_list["brave"]="sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && sudo curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources"
 
 # Watch out for updates for the following applications:
 # - Jellyfin
