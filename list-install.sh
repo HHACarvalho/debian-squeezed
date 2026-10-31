@@ -10,6 +10,7 @@ install_list_apt=(
     puddletag
     qbittorrent
     samba
+    signal-desktop
     sqlite3
     synaptic
     vlc
@@ -26,7 +27,12 @@ install_list_custom["steam"]="sudo apt install steam-installer mesa-vulkan-drive
 declare -A repo_list
 repo_list["brave"]="sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && sudo curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources"
 repo_list["codium"]="curl -fsSL https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | gpg --dearmor | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg && echo -e 'Types: deb\nURIs: https://download.vscodium.com/debs\nSuites: vscodium\nComponents: main\nArchitectures: amd64 arm64\nSigned-by: /usr/share/keyrings/vscodium-archive-keyring.gpg' | sudo tee /etc/apt/sources.list.d/vscodium.sources"
+repo_list["signal-desktop"]="curl https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg && cat signal-desktop-keyring.gpg | sudo tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null && curl -o signal-desktop.sources https://updates.signal.org/static/desktop/apt/signal-desktop.sources && cat signal-desktop.sources | sudo tee /etc/apt/sources.list.d/signal-desktop.sources > /dev/null"
 
 # Watch out for updates for the following applications:
-# - Jellyfin
-# - MangoHud
+# - jellyfin
+# - mangohud
+
+# Useful applications:
+# - conqueror
+# - ghostwriter
