@@ -11,7 +11,6 @@ install_list_apt=(
     qbittorrent
     samba
     signal-desktop
-    sqlite3
     synaptic
     vlc
 )

@@ -15,13 +15,10 @@ sources_config() {
 system_config() {
 
     config_accessibility
-    config_app_launcher
     config_boot
     config_caps_lock
     config_clipboard
     config_clock
-    config_discord
-    #config_discover
     config_dolphin
     config_keyboard
     config_krunner
@@ -47,28 +44,6 @@ config_accessibility() {
     kwriteconfig6 --file ~/.config/kaccessrc --group Bell --key SystemBell "false"
     kwriteconfig6 --file ~/.config/kaccessrc --group Keyboard --key AccessXBeep "false"
     kwriteconfig6 --file ~/.config/kwinrc --group Plugins --key shakecursorEnabled "false"
-}
-
-config_app_launcher() {
-
-    # Clears the favorites list
-    echo "DELETE FROM 'ResourceLink'" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-
-    # Adds Discord, Gaupol, Jellyfin, Kate, MKVToolNix, Puddletag, qBittorrent, Steam, System Monitor, System Settings and Visual Studio Code to the favorites list
-    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:discord.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:io.otsaloma.gaupol.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:com.github.iwalton3.jellyfin-media-player.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:org.kde.kate.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:org.bunkus.mkvtoolnix-gui.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:puddletag.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:org.qbittorrent.qBittorrent.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:steam.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:org.kde.plasma-systemmonitor.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:systemsettings.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-    echo "INSERT INTO 'ResourceLink' VALUES (':global','org.kde.plasma.favorites.applications','applications:code.desktop')" | sqlite3 ~/.local/share/kactivitymanagerd/resources/database
-
-    # Resets the order of the favorites
-    rm ~/.config/kactivitymanagerd-statsrc
 }
 
 config_boot() {
@@ -114,22 +89,6 @@ config_clock() {
 
     # Changes the clock format to 24-Hour
     kwriteconfig6 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc --group Containments --group 2 --group Applets --group 21 --group Configuration --group Appearance --key use24hFormat "2"
-}
-
-config_discord() {
-
-    # Launches Discord on startup
-    mkdir -p ~/.config/autostart/
-    echo -e "[Desktop Entry]\nExec=bash -c 'sleep 3 && /usr/bin/discord'\nIcon=discord\nName=Discord\nType=Application" >~/.config/autostart/discord.desktop
-}
-
-config_discover() {
-
-    # Install Discover's flatpak backend
-    sudo apt install flatpak plasma-discover-backend-flatpak -y
-
-    # Sets Flathub as the default source
-    sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 }
 
 config_dolphin() {
