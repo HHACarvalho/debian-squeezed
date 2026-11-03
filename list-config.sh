@@ -114,7 +114,7 @@ config_dolphin() {
 config_keyboard() {
 
     # Adds both portuguese and english keyboard layouts
-    kwriteconfig6 --file ~/.config/kxkbrc --group Layout --key LayoutList "pt,us"
+    kwriteconfig6 --file ~/.config/kxkbrc --group Layout --key LayoutList "pt,gb"
     kwriteconfig6 --file ~/.config/kxkbrc --group Layout --key Use "true"
 
     # Defines Shift+F9 as the keyboard shortcut to alternate between keyboard layouts
@@ -131,7 +131,7 @@ config_krunner() {
 config_locale_purge() {
 
     # Configures localepurge
-    echo -e "MANDELETE\nDONTBOTHERNEWLOCALE\n\nen\nen_US.UTF-8" | sudo tee /etc/locale.nopurge >/dev/null
+    echo -e "MANDELETE\nDONTBOTHERNEWLOCALE\nen" | sudo tee /etc/locale.nopurge >/dev/null
 
     # Installs localepurge
     sudo DEBIAN_FRONTEND=noninteractive apt install localepurge -y
@@ -218,7 +218,7 @@ config_spell_checker() {
 
     # Enables the spell checker by default and adds both english and portuguese as preferred languages
     kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key checkerEnabledByDefault "true"
-    kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key preferredLanguages "en_US, pt_PT"
+    kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key preferredLanguages "en_GB, pt_PT"
 }
 
 config_swapfile() {
