@@ -8,6 +8,8 @@ purge_list=(
     gimp
     graphviz
     gsfonts
+    hunspell-en-us
+    iamerican
     imagemagick*
     installation-report
     juk
@@ -37,4 +39,5 @@ purge_list=(
     qsynth
     tasksel
     vim-*
+    wamerican
 )
