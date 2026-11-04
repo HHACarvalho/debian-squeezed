@@ -155,7 +155,7 @@ config_mangohud() {
 config_miscellaneous() {
 
     # Sets the resolution scale to 100%
-    kwriteconfig6 --file ~/.config/kwinrc --group Xwayland --key Scale "1"
+    kscreen-doctor output.1.scale.1
 }
 
 config_network() {
