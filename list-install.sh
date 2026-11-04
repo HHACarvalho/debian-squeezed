@@ -5,7 +5,10 @@ install_list_apt=(
     brave-browser
     gaupol
     hunspell-en-gb
+    hunspell-en-us
     hunspell-pt-pt
+    iamerican
+    ibritish
     iportuguese
     mkvtoolnix-gui
     ntpsec
@@ -15,6 +18,7 @@ install_list_apt=(
     signal-desktop
     synaptic
     vlc
+    wamerican
     wbritish
     wportuguese
 )

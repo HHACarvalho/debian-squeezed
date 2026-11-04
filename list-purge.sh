@@ -8,8 +8,6 @@ purge_list=(
     gimp
     graphviz
     gsfonts
-    hunspell-en-us
-    iamerican
     imagemagick*
     installation-report
     juk
@@ -30,7 +28,7 @@ purge_list=(
     less
     lynx
     mariadb-common
-    mythes-en-us
+    mythes*
     orca
     pim-*
     plasma-browser-integration
@@ -39,5 +37,4 @@ purge_list=(
     qsynth
     tasksel
     vim-*
-    wamerican
 )
