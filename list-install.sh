@@ -1,6 +1,7 @@
 #!/bin/bash
 
 install_list_apt=(
+    aspell-en
     aspell-pt-pt
     brave-browser
     gaupol
