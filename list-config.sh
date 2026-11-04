@@ -22,6 +22,7 @@ system_config() {
     config_dolphin
     config_keyboard
     config_krunner
+    config_llama_cpp
     config_locale_purge
     config_mangohud
     config_miscellaneous
@@ -126,6 +127,14 @@ config_krunner() {
     # Disables Software Center and Web Search Keywords on KRunner
     kwriteconfig6 --file ~/.config/krunnerrc --group Plugins --key krunner_appstreamEnabled "false"
     kwriteconfig6 --file ~/.config/krunnerrc --group Plugins --key krunner_webshortcutsEnabled "false"
+}
+
+config_llama_cpp() {
+
+    # Modifies the PATH to include llama.cpp
+    if ! grep -q "llama-app" ~/.profile; then
+        echo -e '\nif [ -d "$HOME/.llama-app" ] ; then\n    PATH="$HOME/.llama-app:$PATH"\nfi' >>~/.profile
+    fi
 }
 
 config_locale_purge() {
