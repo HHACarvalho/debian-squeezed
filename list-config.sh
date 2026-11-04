@@ -155,7 +155,7 @@ config_mangohud() {
 config_miscellaneous() {
 
     # Sets the resolution scale to 100%
-    kwriteconfig6 --file ~/.config/kwinrc --group Xwayland --key AScalee "1"
+    kwriteconfig6 --file ~/.config/kwinrc --group Xwayland --key Scale "1"
 }
 
 config_network() {
@@ -217,8 +217,13 @@ config_spell_checker() {
     mkdir -p ~/.config/KDE/
 
     # Enables the spell checker by default and adds both english and portuguese as preferred languages
+    kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key autodetectLanguage "true"
+    kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key backgroundCheckerEnabled "true"
+    kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key checkUppercase "true"
     kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key checkerEnabledByDefault "true"
+    kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key defaultLanguage "en_GB"
     kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key preferredLanguages "en_GB, pt_PT"
+    kwriteconfig6 --file ~/.config/KDE/Sonnet.conf --group General --key skipRunTogether "true"
 }
 
 config_swapfile() {
