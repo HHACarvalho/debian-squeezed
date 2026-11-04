@@ -1,9 +1,12 @@
 #!/bin/bash
 
 install_list_apt=(
+    aspell-pt-pt
     brave-browser
     gaupol
+    hunspell-en-gb
     hunspell-pt-pt
+    iportuguese
     mkvtoolnix-gui
     ntpsec
     puddletag
@@ -12,6 +15,8 @@ install_list_apt=(
     signal-desktop
     synaptic
     vlc
+    wbritish
+    wportuguese
 )
 
 declare -A install_list_curl
